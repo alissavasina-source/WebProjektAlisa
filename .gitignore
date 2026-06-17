@@ -1,0 +1,5 @@
+node_modules/
+public/uploads/*
+!public/uploads/placeholder-*.svg
+.env
+*.log

@@ -1,0 +1,16 @@
+<%- include('../partials/head') %>
+<main class="container narrow">
+  <h1><%= isTeam ? 'Als Team registrieren' : 'Registrieren' %></h1>
+  <% if (error) { %><div class="alert alert-error"><%= error %></div><% } %>
+
+  <form action="/registrieren" method="post" class="form-grid">
+    <% if (isTeam) { %><input type="hidden" name="role" value="team"><% } %>
+    <label>Name<input type="text" name="name" required></label>
+    <label>E-Mail<input type="email" name="email" required></label>
+    <label>Passwort<input type="password" name="password" minlength="6" required></label>
+    <button type="submit" class="btn btn-primary">Konto erstellen</button>
+  </form>
+
+  <p>Bereits registriert? <a href="/anmelden">Anmelden</a></p>
+</main>
+<%- include('../partials/foot') %>

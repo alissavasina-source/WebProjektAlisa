@@ -1,0 +1,25 @@
+[
+  {
+    "id": "tm-1",
+    "userId": "user-team-1",
+    "name": "Anna Müller",
+    "role": "Senior Stylistin",
+    "bio": "Spezialisiert auf Farbe und Balayage.",
+    "services": ["svc-2", "svc-3"],
+    "tasks": [
+      { "id": "task-1", "title": "Portfolio-Bilder aktualisieren", "done": false },
+      { "id": "task-2", "title": "Neue Preisliste prüfen", "done": true }
+    ]
+  },
+  {
+    "id": "tm-2",
+    "userId": "user-team-2",
+    "name": "Max Schneider",
+    "role": "Barber",
+    "bio": "Experte für Herrenschnitte und Bartpflege.",
+    "services": ["svc-1"],
+    "tasks": [
+      { "id": "task-3", "title": "Termine für Freitag bestätigen", "done": false }
+    ]
+  }
+]

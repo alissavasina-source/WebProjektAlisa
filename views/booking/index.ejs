@@ -1,0 +1,36 @@
+<%- include('../partials/head') %>
+<main class="container">
+  <h1>Termin buchen</h1>
+
+  <% if (success) { %><div class="alert alert-success"><%= success %></div><% } %>
+  <% if (error) { %><div class="alert alert-error"><%= error %></div><% } %>
+
+  <form action="/termin" method="post" class="form-grid booking-form">
+    <label>Service
+      <select name="serviceId" required>
+        <option value="">Bitte wählen</option>
+        <% services.forEach(function(s) { %>
+          <option value="<%= s.id %>"><%= s.name %> — <%= s.price.toFixed(2) %> € (<%= s.duration %> Min.)</option>
+        <% }) %>
+      </select>
+    </label>
+
+    <label>Teammitglied
+      <select name="teamMemberId" required>
+        <option value="">Bitte wählen</option>
+        <% team.forEach(function(m) { %>
+          <option value="<%= m.id %>"><%= m.name %> (<%= m.role %>)</option>
+        <% }) %>
+      </select>
+    </label>
+
+    <label>Datum<input type="date" name="date" required min="<%= new Date().toISOString().split('T')[0] %>"></label>
+    <label>Uhrzeit<input type="time" name="time" required></label>
+    <label>Name<input type="text" name="customerName" required value="<%= user ? user.name : '' %>"></label>
+    <label>E-Mail<input type="email" name="customerEmail" required value="<%= user ? user.email : '' %>"></label>
+    <label>Telefon<input type="tel" name="customerPhone"></label>
+
+    <button type="submit" class="btn btn-primary">Termin reservieren</button>
+  </form>
+</main>
+<%- include('../partials/foot') %>

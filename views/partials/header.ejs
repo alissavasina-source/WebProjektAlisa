@@ -1,0 +1,37 @@
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/" class="logo"><%= salonName %></a>
+    </div>
+
+    <nav class="header-nav">
+      <a href="/">Start</a>
+      <a href="/services">Services</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/termin">Termin</a>
+      <a href="/produkte">Produkte</a>
+      <a href="/team">Team</a>
+      <% if (user && user.role === 'team') { %>
+        <a href="/termin/uebersicht">Termine</a>
+        <a href="/team/profil/me">Mein Profil</a>
+      <% } %>
+    </nav>
+
+    <div class="header-right">
+      <div class="auth-links">
+        <% if (user) { %>
+          <span class="user-greeting">Hallo, <%= user.name %></span>
+          <form action="/abmelden" method="post" class="inline-form">
+            <button type="submit" class="link-btn">Abmelden</button>
+          </form>
+        <% } else { %>
+          <a href="/anmelden">Anmelden</a>
+          <a href="/registrieren">Registrieren</a>
+        <% } %>
+      </div>
+      <a href="/warenkorb" class="cart-link">
+        Warenkorb (<%= cartCount %>)
+      </a>
+    </div>
+  </div>
+</header>

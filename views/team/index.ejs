@@ -1,0 +1,21 @@
+<%- include('../partials/head') %>
+<main class="container">
+  <h1>Unser Team</h1>
+
+  <div class="team-grid">
+    <% members.forEach(function(m) { %>
+      <article class="team-card">
+        <h3><a href="/team/<%= m.id %>"><%= m.name %></a></h3>
+        <p class="role"><%= m.role %></p>
+        <p><%= m.bio || 'Noch kein Profiltext.' %></p>
+      </article>
+    <% }) %>
+  </div>
+
+  <% if (user && user.role === 'team') { %>
+    <p><a href="/team/profil/me">Mein Profil & Aufgaben →</a></p>
+  <% } else { %>
+    <p>Teammitglied? <a href="/registrieren?team=1">Als Team registrieren</a></p>
+  <% } %>
+</main>
+<%- include('../partials/foot') %>

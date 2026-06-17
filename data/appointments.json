@@ -1,0 +1,30 @@
+[
+  {
+    "id": "d5220fef-7f65-4f05-bca0-f0020795456f",
+    "serviceId": "svc-2",
+    "serviceName": "Damenhaarschnitt",
+    "teamMemberId": "tm-1",
+    "teamMemberName": "Anna Müller",
+    "date": "2026-06-19",
+    "time": "13:55",
+    "customerName": "alisa",
+    "customerEmail": "alissa.vasina@gmail.com",
+    "customerPhone": "",
+    "userId": "81169c7f-ef3d-47cb-9011-27d23753cd9b",
+    "createdAt": "2026-06-17T06:55:26.600Z"
+  },
+  {
+    "id": "20d6e696-50e2-4520-b8b6-885bc4d352e4",
+    "serviceId": "svc-1",
+    "serviceName": "Herrenschnitt",
+    "teamMemberId": "tm-2",
+    "teamMemberName": "Max Schneider",
+    "date": "2026-06-24",
+    "time": "14:19",
+    "customerName": "ffff",
+    "customerEmail": "fr@gmail.com",
+    "customerPhone": "998162",
+    "userId": null,
+    "createdAt": "2026-06-17T09:19:48.572Z"
+  }
+]

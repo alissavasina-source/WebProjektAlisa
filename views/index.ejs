@@ -1,0 +1,36 @@
+<%- include('partials/head') %>
+<main class="container">
+  <section class="hero">
+    <h1>Willkommen bei <%= salonName %></h1>
+    <p>Stil, Pflege und Beratung — buchen Sie Ihren Termin online.</p>
+    <a href="/termin" class="btn btn-primary">Termin buchen</a>
+  </section>
+
+  <section class="grid-2">
+    <div>
+      <h2>Beliebte Services</h2>
+      <ul class="card-list">
+        <% services.forEach(function(s) { %>
+          <li class="card">
+            <strong><%= s.name %></strong>
+            <span><%= s.price.toFixed(2) %> €</span>
+          </li>
+        <% }) %>
+      </ul>
+      <a href="/services">Alle Services →</a>
+    </div>
+    <div>
+      <h2>Aus dem Portfolio</h2>
+      <div class="portfolio-preview">
+        <% portfolio.forEach(function(p) { %>
+          <figure>
+            <img src="<%= p.image %>" alt="<%= p.title %>">
+            <figcaption><%= p.title %></figcaption>
+          </figure>
+        <% }) %>
+      </div>
+      <a href="/portfolio">Mehr ansehen →</a>
+    </div>
+  </section>
+</main>
+<%- include('partials/foot') %>

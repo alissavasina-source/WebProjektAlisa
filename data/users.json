@@ -1,0 +1,23 @@
+[
+  {
+    "id": "user-team-1",
+    "email": "anna@salon.de",
+    "password": "$2a$10$B0aPCWvTE1he.pXxBIR9x.u3GcX5Cjn427HxPvhegvJWfAZDU4NrG",
+    "name": "Anna Müller",
+    "role": "team"
+  },
+  {
+    "id": "user-team-2",
+    "email": "max@salon.de",
+    "password": "$2a$10$prHREvLz/tNsBKbSCO13IOxp6.yi6Hb.m2aOFHAjV.GJbvFVdiGoW",
+    "name": "Max Schneider",
+    "role": "team"
+  },
+  {
+    "id": "81169c7f-ef3d-47cb-9011-27d23753cd9b",
+    "email": "alissa.vasina@gmail.com",
+    "name": "alisa",
+    "password": "$2a$10$2HPp09oFQ5IEVxA4No1r6uk0qB6iZxbiPtka7edNnmrwzX5J.mvT6",
+    "role": "customer"
+  }
+]

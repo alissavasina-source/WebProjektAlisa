@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+<main class="container">
+  <h1>Warenkorb</h1>
+
+  <% if (cart.length === 0) { %>
+    <p>Ihr Warenkorb ist leer. <a href="/produkte">Produkte ansehen</a></p>
+  <% } else { %>
+    <table class="data-table">
+      <thead>
+        <tr><th>Produkt</th><th>Menge</th><th>Preis</th><th></th></tr>
+      </thead>
+      <tbody>
+        <% cart.forEach(function(item) { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.quantity %></td>
+            <td><%= (item.price * item.quantity).toFixed(2) %> €</td>
+            <td>
+              <form action="/warenkorb/<%= item.productId %>/entfernen" method="post">
+                <button type="submit" class="btn btn-small btn-danger">Entfernen</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <p class="total">Gesamt: <strong><%= total.toFixed(2) %> €</strong></p>
+    <form action="/warenkorb/checkout" method="post">
+      <button type="submit" class="btn btn-primary">Bestellung abschließen</button>
+    </form>
+  <% } %>
+</main>
+<%- include('../partials/foot') %>

@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+<main class="container">
+  <h1>Terminübersicht</h1>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Uhrzeit</th>
+        <th>Service</th>
+        <th>Teammitglied</th>
+        <th>Kunde</th>
+        <th>Kontakt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (appointments.length === 0) { %>
+        <tr><td colspan="6">Keine Termine vorhanden.</td></tr>
+      <% } %>
+      <% appointments.forEach(function(a) { %>
+        <tr>
+          <td><%= a.date %></td>
+          <td><%= a.time %></td>
+          <td><%= a.serviceName %></td>
+          <td><%= a.teamMemberName %></td>
+          <td><%= a.customerName %></td>
+          <td><%= a.customerEmail %><% if (a.customerPhone) { %><br><%= a.customerPhone %><% } %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</main>
+<%- include('../partials/foot') %>

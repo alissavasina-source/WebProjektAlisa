@@ -1,0 +1,15 @@
+<%- include('../partials/head') %>
+<main class="container narrow">
+  <h1>Anmelden</h1>
+  <% if (error) { %><div class="alert alert-error"><%= error %></div><% } %>
+
+  <form action="/anmelden" method="post" class="form-grid">
+    <label>E-Mail<input type="email" name="email" required></label>
+    <label>Passwort<input type="password" name="password" required></label>
+    <button type="submit" class="btn btn-primary">Anmelden</button>
+  </form>
+
+  <p>Noch kein Konto? <a href="/registrieren">Registrieren</a></p>
+  <p class="hint demo">Demo Team: anna@salon.de / passwort123</p>
+</main>
+<%- include('../partials/foot') %>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "svc-1",
+    "name": "Herrenschnitt",
+    "description": "Klassischer Herrenschnitt inkl. Waschen",
+    "price": 28,
+    "duration": 30
+  },
+  {
+    "id": "svc-2",
+    "name": "Damenhaarschnitt",
+    "description": "Individueller Schnitt mit Beratung",
+    "price": 45,
+    "duration": 45
+  },
+  {
+    "id": "svc-3",
+    "name": "Färben",
+    "description": "Komplettfärbung oder Strähnen",
+    "price": 65,
+    "duration": 90
+  }
+]

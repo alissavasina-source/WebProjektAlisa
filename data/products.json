@@ -1,0 +1,23 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Feuchtigkeitsshampoo",
+    "description": "Sanftes Shampoo für trockenes Haar, 250 ml",
+    "price": 18.5,
+    "stock": 25
+  },
+  {
+    "id": "prod-2",
+    "name": "Styling-Creme",
+    "description": "Leichte Creme für natürlichen Halt",
+    "price": 14.9,
+    "stock": 40
+  },
+  {
+    "id": "prod-3",
+    "name": "Haarbürste Premium",
+    "description": "Entwirrbürste mit Naturborsten",
+    "price": 22.0,
+    "stock": 15
+  }
+]

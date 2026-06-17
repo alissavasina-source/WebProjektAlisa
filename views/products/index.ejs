@@ -1,0 +1,52 @@
+<%- include('../partials/head') %>
+<main class="container">
+  <h1>Produkte</h1>
+
+  <div class="product-grid">
+    <% products.forEach(function(p) { %>
+      <article class="product-card">
+        <h3><%= p.name %></h3>
+        <p><%= p.description %></p>
+        <p class="price"><%= p.price.toFixed(2) %> €</p>
+        <p class="stock">Lager: <%= p.stock %></p>
+        <% if (user && user.role !== 'team') { %>
+          <form action="/produkte/<%= p.id %>/warenkorb" method="post">
+            <button type="submit" class="btn btn-primary" <%= p.stock <= 0 ? 'disabled' : '' %>>In den Warenkorb</button>
+          </form>
+        <% } %>
+      </article>
+    <% }) %>
+  </div>
+
+  <% if (isTeam) { %>
+    <section class="form-section">
+      <h2>Produkt verwalten</h2>
+      <% products.forEach(function(p) { %>
+        <form action="/produkte/<%= p.id %>/bearbeiten" method="post" class="form-grid inline-edit">
+          <input type="text" name="name" value="<%= p.name %>" required>
+          <input type="text" name="description" value="<%= p.description %>" required>
+          <input type="number" name="price" value="<%= p.price %>" step="0.01" min="0" required>
+          <input type="number" name="stock" value="<%= p.stock %>" min="0" required>
+          <button type="submit" class="btn btn-small">Speichern</button>
+        </form>
+        <form action="/produkte/<%= p.id %>/loeschen" method="post" class="inline-form">
+          <button type="submit" class="btn btn-small btn-danger">Löschen</button>
+        </form>
+      <% }) %>
+
+      <h3>Neues Produkt</h3>
+      <form action="/produkte" method="post" class="form-grid">
+        <label>Name<input type="text" name="name" required></label>
+        <label>Beschreibung<input type="text" name="description" required></label>
+        <label>Preis<input type="number" name="price" step="0.01" min="0" required></label>
+        <label>Lagerbestand<input type="number" name="stock" min="0" required></label>
+        <button type="submit" class="btn btn-primary">Hinzufügen</button>
+      </form>
+    </section>
+  <% } %>
+
+  <% if (!user) { %>
+    <p class="hint">Bitte <a href="/anmelden">anmelden</a>, um Produkte zu bestellen.</p>
+  <% } %>
+</main>
+<%- include('../partials/foot') %>

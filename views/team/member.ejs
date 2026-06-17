@@ -1,0 +1,21 @@
+<%- include('../partials/head') %>
+<main class="container">
+  <h1><%= member.name %></h1>
+  <p class="role"><%= member.role %></p>
+  <p><%= member.bio %></p>
+
+  <h2>Services</h2>
+  <% if (services.length === 0) { %>
+    <p>Keine Services zugewiesen.</p>
+  <% } else { %>
+    <ul>
+      <% services.forEach(function(s) { %>
+        <li><%= s.name %> — <%= s.price.toFixed(2) %> €</li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <a href="/termin" class="btn btn-primary">Termin buchen</a>
+  <a href="/team">← Zurück zum Team</a>
+</main>
+<%- include('../partials/foot') %>

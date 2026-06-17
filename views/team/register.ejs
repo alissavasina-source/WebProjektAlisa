@@ -1,0 +1,23 @@
+<%- include('../partials/head') %>
+<main class="container narrow">
+  <h1>Team-Registrierung</h1>
+  <p>Erstellen Sie Ihr Team-Profil mit Services und Aufgaben.</p>
+
+  <% if (error) { %><div class="alert alert-error"><%= error %></div><% } %>
+
+  <form action="/team/registrieren/me" method="post" class="form-grid">
+    <label>Rolle / Titel<input type="text" name="role" placeholder="z.B. Stylistin" required></label>
+    <label>Bio<textarea name="bio" rows="4" placeholder="Kurz über Sie..."></textarea></label>
+    <fieldset>
+      <legend>Services</legend>
+      <% services.forEach(function(s) { %>
+        <label class="checkbox">
+          <input type="checkbox" name="services" value="<%= s.id %>">
+          <%= s.name %>
+        </label>
+      <% }) %>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Profil anlegen</button>
+  </form>
+</main>
+<%- include('../partials/foot') %>
