@@ -16,6 +16,9 @@ const adminRoutes = require('./routes/admin');
 
 const app = express();
 
+const morgan = require('morgan'); // Importiere morgan für Logging
+app.use(morgan('dev')); // Morgan als Middleware verwenden, um HTTP-Anfragen zu protokollieren
+// dev zeigt die farbige Ausgabe im Terminal an, was die Lesbarkeit verbessert.
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
