@@ -25,6 +25,4 @@ if (fs.existsSync(usersPath)) {
   }
 }
 
-app.listen(config.port, () => {
-  console.log(`${config.salonName} läuft auf http://localhost:${config.port}`);
-});
+app.listen(3000);
