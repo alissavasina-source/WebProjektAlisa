@@ -1,34 +1,14 @@
 <%- include('../partials/head') %>
 <main class="container">
-  <h1>Portfolio</h1>
+  <h1>Portfolio/Bildergalerie</h1>
 
-  <div class="portfolio-grid">
-    <% items.forEach(function(item) { %>
-      <article class="portfolio-card">
-        <img src="<%= item.image %>" alt="<%= item.title %>">
-        <div>
-          <h3><%= item.title %></h3>
-          <p><%= item.description %></p>
-          <% if (isTeam) { %>
-            <form action="/portfolio/<%= item.id %>/loeschen" method="post">
-              <button type="submit" class="btn btn-small btn-danger">Entfernen</button>
-            </form>
-          <% } %>
-        </div>
-      </article>
-    <% }) %>
-  </div>
-
-  <% if (isTeam) { %>
-    <section class="form-section">
-      <h2>Bild hinzufügen</h2>
-      <form action="/portfolio" method="post" enctype="multipart/form-data" class="form-grid">
-        <label>Titel<input type="text" name="title" required></label>
-        <label>Beschreibung<input type="text" name="description" required></label>
-        <label>Bild<input type="file" name="image" accept="image/*"></label>
-        <button type="submit" class="btn btn-primary">Hochladen</button>
-      </form>
+  
+    <section class="portfolio-container">
+       <img src="/uploads/haare1.jpg" alt="Haare 1">
+        <img src="/uploads/haare2.jpg" alt="Haare 2">
+        <img src="/uploads/haare3.jpg" alt="Haare 3">
     </section>
-  <% } %>
 </main>
-<%- include('../partials/foot') %>
+
+<%- include('../partials/footer') %>
+

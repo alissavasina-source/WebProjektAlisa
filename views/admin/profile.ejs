@@ -1,0 +1,37 @@
+<%- include('../partials/head') %>
+<main class="container admin-page">
+  <%- include('../partials/adminMenu') %>
+  <div class="admin-container">
+  <h1>Mein Team-Profil</h1>
+  <% if (saved) { %><div class="alert alert-success">Profil gespeichert.</div><% } %>
+
+  <form action="/admin/profile" method="post" enctype="multipart/form-data" class="form-grid">
+    <label>Name<input type="text" name="name" value="<%= member.name %>" required></label>
+    <label>Rolle<input type="text" name="role" value="<%= member.role %>" required></label>
+    <label>Bio<textarea name="bio" rows="4"><%= member.bio %></textarea></label>
+
+    <div class="profile-image-section">
+        <label>Aktuelles Profilbild</label>
+        <div class="image-preview-container">
+          <img src="<%= member.imagePath || '/uploadsTeam/default-avatar.png' %>" 
+               alt="Profilbild von <%= member.name %>" 
+               class="admin-profile-img">
+        </div>
+        <label>Neues Bild hochladen
+          <input type="file" name="profileImage" accept="image/*">
+        </label>
+      </div>
+
+    <fieldset>
+      <legend>Meine Services</legend>
+      <% services.forEach(function(s) { %>
+        <label class="checkbox">
+          <input type="checkbox" name="services" value="<%= s.id %>" <%= member.services.includes(s.id) ? 'checked' : '' %>>
+          <%= s.name %>
+        </label>
+      <% }) %>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Profil speichern</button>
+  </form>
+
+<%- include('../partials/foot') %>

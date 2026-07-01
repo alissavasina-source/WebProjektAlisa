@@ -167,7 +167,7 @@ a:hover {
   background: #eee;
 }
 
-.portfolio-grid,
+/*.admin-container,*/
 .product-grid,
 .team-grid {
   display: grid;
@@ -175,7 +175,7 @@ a:hover {
   gap: 1.5rem;
 }
 
-.portfolio-card,
+/*.portfolio-card,*/
 .product-card,
 .team-card {
   background: #fff;
@@ -184,7 +184,7 @@ a:hover {
   padding: 1rem;
   overflow: hidden;
 }
-
+/*
 .portfolio-card img {
   width: 100%;
   height: 180px;
@@ -193,7 +193,13 @@ a:hover {
   margin-bottom: 0.75rem;
   background: #eee;
 }
-
+*/
+.portfolio-container img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 .price {
   font-size: 1.2rem;
   font-weight: 700;
@@ -371,7 +377,67 @@ fieldset {
   font-size: 0.9rem;
   border-top: 1px solid #e8dfd8;
 }
+/* Normale Standard-Seiten ohne Menü */
+main.container {
+  display: block; /* Ganz normales Layout untereinander */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+
+main.container.admin-page {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* 2 Spalten: Links Menü, rechts Inhalt */
+  min-height: 100vh;
+  max-width: 100%; /* Nutzt den ganzen Bildschirm aus */
+  padding: 0;
+  margin: 0;
+}
+/* 2. Styling für dein ausgelagertes Menü-Partial */
+/* (Hinweis: Falls dein Partial mit <nav class="admin-sidebar"> anfängt, nutze das hier) */
+.admin-sidebar {
+  background-color: #2c3e50; /* Professionelles, dunkles Admin-Blau */
+  color: #ffffff;
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+
+.admin-sidebar li a {
+  display: block;
+  padding: 12px 20px;
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Hover-Effekt & aktive Seite */
+.admin-sidebar li a:hover,
+.admin-sidebar li a.active {
+  background-color: #34495e;
+  color: #3498db;
+  border-left: 4px solid #3498db;
+}
+
+/* 3. Styling für die rechte Seite (deinen Inhalts-Container) */
+.admin-container {
+  padding: 40px;
+  background-color: #ffffff; /* Heller Hintergrund für die Tabellen/Formulare */
+  overflow-y: auto;          /* Scrollt unabhängig, wenn der Inhalt sehr lang wird */
+}
+
+.portfolio-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 40px;
+}
 @media (max-width: 768px) {
   .header-inner {
     grid-template-columns: 1fr;
@@ -387,4 +453,37 @@ fieldset {
   .header-right {
     align-items: center;
   }
+}
+/*img team*/
+.profile-image-section {
+    margin: 20px 0;
+}
+
+.image-preview-container {
+    margin-bottom: 12px;
+}
+
+/* Das Profilbild selbst: Perfekt rund und unverzerrt */
+.admin-profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;      /* Verhindert, dass das Bild gestaucht/gezogen wird */
+    border-radius: 50%;     /* Macht das Bild kreisrund */
+    border: 3px solid #ddd; /* Eleganter grauer Rahmen */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Minimaler Schatten */
+}
+
+/* Versteckt den Standard-Hintergrund des Datei-Inputs ein wenig für saubereren Look */
+.profile-image-section input[type="file"] {
+    margin-top: 5px;
+    display: block;
+}
+/*team member*/
+.team-member-img {
+    width: 180px;         /* Etwas größer für die Detailseite */
+    height: 180px;
+    object-fit: cover;    /* Verhindert Verzerrungen */
+    border-radius: 50%;   /* Macht das Bild kreisrund */
+    border: 3px solid #eee;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }

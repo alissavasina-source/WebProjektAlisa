@@ -10,15 +10,6 @@ exports.list = (req, res) => {
   res.render('team/index', { title: 'Team', members });
 };
 
-exports.showProfile = (req, res) => {
-  const member = getMemberForUser(req.session.user.id);
-  if (!member) {
-    return res.redirect('/team/registrieren');
-  }
-  const services = store.read('services');
-  res.render('team/profile', { title: 'Mein Profil', member, services, saved: false });
-};
-
 exports.showRegister = (req, res) => {
   const existing = getMemberForUser(req.session.user.id);
   if (existing) return res.redirect('/team/profil');
@@ -44,24 +35,6 @@ exports.register = (req, res) => {
   res.redirect('/team/profil');
 };
 
-exports.updateProfile = (req, res) => {
-  const member = getMemberForUser(req.session.user.id);
-  if (!member) return res.redirect('/team/registrieren');
-
-  const { role, bio, services: serviceIds } = req.body;
-  const selectedServices = Array.isArray(serviceIds) ? serviceIds : serviceIds ? [serviceIds] : [];
-
-  store.upsert('team', {
-    ...member,
-    name: req.body.name || member.name,
-    role: role || member.role,
-    bio: bio || '',
-    services: selectedServices
-  });
-
-  const services = store.read('services');
-  res.render('team/profile', { title: 'Mein Profil', member: getMemberForUser(req.session.user.id), services, saved: true });
-};
 
 exports.addTask = (req, res) => {
   const member = getMemberForUser(req.session.user.id);

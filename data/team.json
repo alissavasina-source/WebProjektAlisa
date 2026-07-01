@@ -1,25 +1,36 @@
 [
   {
-    "id": "tm-1",
-    "userId": "user-team-1",
-    "name": "Anna Müller",
-    "role": "Senior Stylistin",
-    "bio": "Spezialisiert auf Farbe und Balayage.",
-    "services": ["svc-2", "svc-3"],
-    "tasks": [
-      { "id": "task-1", "title": "Portfolio-Bilder aktualisieren", "done": false },
-      { "id": "task-2", "title": "Neue Preisliste prüfen", "done": true }
-    ]
+    "id": "a9d1d519-fdcb-4742-bd73-0ab8fd992b29",
+    "userId": "20ff4f24-e575-4c66-9923-5b2fa1341be4",
+    "name": "1212",
+    "role": "Neues Teammitglied",
+    "bio": "tretret",
+    "services": [
+      "svc-2",
+      "svc-3"
+    ],
+    "tasks": []
   },
   {
-    "id": "tm-2",
-    "userId": "user-team-2",
-    "name": "Max Schneider",
-    "role": "Barber",
-    "bio": "Experte für Herrenschnitte und Bartpflege.",
-    "services": ["svc-1"],
-    "tasks": [
-      { "id": "task-3", "title": "Termine für Freitag bestätigen", "done": false }
-    ]
+    "id": "3c237467-ef27-4f09-abb9-bace46c79f8f",
+    "userId": "97a53764-033d-4215-a530-acf9f520c479",
+    "name": "23",
+    "role": "Neues Teammitglied",
+    "bio": "",
+    "services": [
+      "svc-2"
+    ],
+    "tasks": [],
+    "imagePath": "/uploadsTeam/profile-1782903213885-alisa.jpeg"
+  },
+  {
+    "id": "2d8ea105-64b9-485e-8536-842d95a8d4cd",
+    "userId": "9558c03e-207f-47fa-8b00-3f73c2eb571e",
+    "name": "333",
+    "role": "Neues Teammitglied",
+    "bio": "",
+    "services": [],
+    "tasks": [],
+    "imagePath": ""
   }
 ]

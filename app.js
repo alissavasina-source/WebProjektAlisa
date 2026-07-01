@@ -12,6 +12,7 @@ const bookingRoutes = require('./routes/booking');
 const productsRoutes = require('./routes/products');
 const cartRoutes = require('./routes/cart');
 const teamRoutes = require('./routes/team');
+const adminRoutes = require('./routes/admin');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/termin', bookingRoutes);
 app.use('/produkte', productsRoutes);
 app.use('/warenkorb', cartRoutes);
 app.use('/team', teamRoutes);
+app.use('/admin', adminRoutes);
 
 app.use((req, res) => {
   res.status(404).render('error', { title: 'Nicht gefunden', message: 'Seite nicht gefunden.' });

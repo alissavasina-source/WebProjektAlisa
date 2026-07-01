@@ -1,5 +1,10 @@
 <%- include('../partials/head') %>
 <main class="container">
+  <div class="member-image-container" style="margin-bottom: 20px;">
+    <img src="/<%= member.imagePath ? member.imagePath.replace(/^\//, '') : 'uploadsTeam/default-avatar.png' %>" 
+     alt="Profilbild von <%= member.name %>" 
+     class="team-member-img">
+  </div>
   <h1><%= member.name %></h1>
   <p class="role"><%= member.role %></p>
   <p><%= member.bio %></p>

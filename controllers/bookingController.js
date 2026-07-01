@@ -64,7 +64,3 @@ exports.create = (req, res) => {
   });
 };
 
-exports.list = (req, res) => {
-  const appointments = store.read('appointments');
-  res.render('booking/list', { title: 'Termine', appointments });
-};

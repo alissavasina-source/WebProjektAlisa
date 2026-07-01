@@ -1,23 +1,37 @@
 [
   {
-    "id": "user-team-1",
-    "email": "anna@salon.de",
-    "password": "$2a$10$B0aPCWvTE1he.pXxBIR9x.u3GcX5Cjn427HxPvhegvJWfAZDU4NrG",
-    "name": "Anna Müller",
-    "role": "team"
-  },
-  {
-    "id": "user-team-2",
-    "email": "max@salon.de",
-    "password": "$2a$10$prHREvLz/tNsBKbSCO13IOxp6.yi6Hb.m2aOFHAjV.GJbvFVdiGoW",
-    "name": "Max Schneider",
-    "role": "team"
-  },
-  {
-    "id": "81169c7f-ef3d-47cb-9011-27d23753cd9b",
-    "email": "alissa.vasina@gmail.com",
-    "name": "alisa",
-    "password": "$2a$10$2HPp09oFQ5IEVxA4No1r6uk0qB6iZxbiPtka7edNnmrwzX5J.mvT6",
+    "id": "47e55295-302c-45ff-a71e-97b14952ecba",
+    "email": "1@1",
+    "name": "akina",
+    "password": "$2a$10$MKXtEcoYDNJ5r9O/4GvRN.s.8pps0byWpvngO6VbddCAarVG648yG",
     "role": "customer"
+  },
+  {
+    "id": "37af5074-aa66-4cb8-b33f-4a09f663b773",
+    "email": "2@2",
+    "name": "kunde",
+    "password": "$2a$10$9ScastYePgUTrF.4/Yw0seuKMsmDbN1pQcbO8vhH95D8bp1DFY2x.",
+    "role": "customer"
+  },
+  {
+    "id": "20ff4f24-e575-4c66-9923-5b2fa1341be4",
+    "email": "1@11",
+    "name": "1212",
+    "password": "$2a$10$Lx6IAYGb8fS1NILLNvMj1OvulrADfVzjvcy8eOaU8.94MT6ed8t1m",
+    "role": "team"
+  },
+  {
+    "id": "97a53764-033d-4215-a530-acf9f520c479",
+    "email": "2@23",
+    "name": "23",
+    "password": "$2a$10$g3o2JN6vmIguYP3VskhPi.ZaFpYh33stWBuysBJ/MRrLyfCXFXROq",
+    "role": "team"
+  },
+  {
+    "id": "9558c03e-207f-47fa-8b00-3f73c2eb571e",
+    "email": "3@33",
+    "name": "333",
+    "password": "$2a$10$x5UZGdqSu2i0qcD8XdEV/eGxwiZAXc01VFcuY4ajQscuB4KzLAGy6",
+    "role": "team"
   }
 ]

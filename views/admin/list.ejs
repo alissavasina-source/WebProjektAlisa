@@ -1,5 +1,7 @@
 <%- include('../partials/head') %>
-<main class="container">
+<main class="container admin-page">
+  <%- include('../partials/adminMenu') %>
+  <div class="admin-container">
   <h1>Terminübersicht</h1>
 
   <table class="data-table">
@@ -11,6 +13,7 @@
         <th>Teammitglied</th>
         <th>Kunde</th>
         <th>Kontakt</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -25,9 +28,15 @@
           <td><%= a.teamMemberName %></td>
           <td><%= a.customerName %></td>
           <td><%= a.customerEmail %><% if (a.customerPhone) { %><br><%= a.customerPhone %><% } %></td>
+          <td>
+            <form action="/admin/termin/stornieren/<%= a.id %>" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-primary btn-danger">Stornieren</button>
+            </form>
+          </td>
         </tr>
       <% }) %>
     </tbody>
   </table>
+  </div>
 </main>
 <%- include('../partials/foot') %>

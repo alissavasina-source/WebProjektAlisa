@@ -11,16 +11,16 @@
       <a href="/termin">Termin</a>
       <a href="/produkte">Produkte</a>
       <a href="/team">Team</a>
-      <% if (user && user.role === 'team') { %>
-        <a href="/termin/uebersicht">Termine</a>
-        <a href="/team/profil/me">Mein Profil</a>
-      <% } %>
     </nav>
 
     <div class="header-right">
       <div class="auth-links">
         <% if (user) { %>
-          <span class="user-greeting">Hallo, <%= user.name %></span>
+          <% if (user.role === 'team') { %>
+            <a href="/admin/profile" class="user-greeting text-link">💼 Hallo, <%= user.name %> (Team)</a>
+          <% } else { %>
+           <span class="user-greeting">Hallo, <%= user.name %></span>
+          <% } %>
           <form action="/abmelden" method="post" class="inline-form">
             <button type="submit" class="link-btn">Abmelden</button>
           </form>
