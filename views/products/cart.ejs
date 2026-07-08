@@ -7,13 +7,39 @@
   <% } else { %>
     <table class="data-table">
       <thead>
-        <tr><th>Produkt</th><th>Menge</th><th>Preis</th><th></th></tr>
+        <tr><th>Produkt</th>
+          <th>Menge</th>
+          <th>Preis</th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <% cart.forEach(function(item) { %>
           <tr>
             <td><%= item.name %></td>
-            <td><%= item.quantity %></td>
+            <td>
+            <div class="quantity-control">
+
+        <!-- Minus -->
+        <form action="/warenkorb/<%= item.productId %>/minus" method="post">
+            <button class="qty-btn" <%= item.quantity <= 1 ? "disabled" : "" %>>
+                -
+            </button>
+        </form>
+
+        <span class="qty-number"><%= item.quantity %></span>
+
+        <!-- Plus -->
+        <form action="/warenkorb/<%= item.productId %>/plus" method="post">
+            <button class="qty-btn">
+                +
+            </button>
+        </form>
+
+    </div>
+    </td>
+
+            <!-- <td><%= item.quantity %></td> -->
             <td><%= (item.price * item.quantity).toFixed(2) %> €</td>
             <td>
               <form action="/warenkorb/<%= item.productId %>/entfernen" method="post">
@@ -24,6 +50,8 @@
         <% }) %>
       </tbody>
     </table>
+    <td>
+</td>
     <p class="total">Gesamt: <strong><%= total.toFixed(2) %> €</strong></p>
     <form action="/warenkorb/checkout" method="post">
       <button type="submit" class="btn btn-primary">Bestellung abschließen</button>

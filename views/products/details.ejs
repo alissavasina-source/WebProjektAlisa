@@ -1,33 +1,48 @@
 <%- include('../partials/head') %>
 
-
 <main class="container product-detail-page">
  
   <h1><%= product.name %></h1>
-  <!-- Produktbild -->
-  <img src="<%= product.image %>" alt="<%= product.name %>" class="product-detail-image">
-  <!-- Beschreibung -->
-  <p><%= product.description %></p>
-  <!-- Preis + Lager -->
-  <p class="price">Preis: <%= product.price.toFixed(2) %> €</p>
-  <p class="stock">Lagerbestand: <%= product.stock %></p>
+   <div class="product-detail-wrapper">
+   <!-- Linke Seite: Bild, new-->
+    <div class="product-detail-image-box">
+      <img src="<%= product.image %>" alt="<%= product.name %>" class="product-detail-image">
+      
+      <div class="product-buy-box">
+        <p class="price">Preis: <%= product.price.toFixed(2) %> €</p>
 
-  <!-- Mengensteuerung -->
-<div class="quantity-control">
-  <p class="menge-label">Menge:
-  <button id="minus" class="qty-btn">-</button>
-  <span id="count">1</span>
-  <button id="plus" class="qty-btn">+</button>
-  </p>
+         <!-- Menge -->
+          <div class="buy-controls">
+        <div class="quantity-control">
+          <button id="plus" class="qty-btn">+</button>
+          <span id="count">1</span>
+          <button id="minus" class="qty-btn">-</button>
+        </div>
+        <!-- Warenkorb -->
+        <form action="/produkte/<%= product.id %>/warenkorb" method="post">
+          <a href="/warenkorb" class="cart-link">
+  <i class="fa-solid fa-cart-shopping"></i> (<%= cartCount %>)
+</a></form>
 </div>
+ <!-- Warenkorb -->
+        <form action="/produkte/<%= product.id %>/warenkorb" method="post">
+          <input type="hidden" name="quantity" id="quantityInput" value="1">
+          <button type="submit" class="btn btn-primary cart-btn" <%= product.stock <= 0 ? 'disabled' : '' %>>
+             In den Warenkorb
+          </button>
+        </form>
 
-  <!-- In den Warenkorb -->
-  <form action="/produkte/<%= product.id %>/warenkorb" method="post">
-    <input type="hidden" name="quantity" id="quantityInput" value="1">
-    <button type="submit" class="btn btn-primary" <%= product.stock <= 0 ? 'disabled' : '' %>>
-      In den Warenkorb
-    </button>
-  </form>
+
+        <p class="stock">Lagerbestand: <%= product.stock %></p>
+      </div>
+    </div>
+
+     <!-- Rechte Seite: Beschreibung -->
+    <div class="product-detail-info">
+      <p><%= product.description %></p>
+    </div>
+
+  </div>
 </main>
 
 <script>
