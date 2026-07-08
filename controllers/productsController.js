@@ -4,16 +4,23 @@ const store = require('../utils/jsonStore');
 exports.list = (req, res) => {
   const products = store.read('products');
   const isTeam = req.session.user?.role === 'team';
-  res.render('products/index', { title: 'Produkte', products, isTeam });
+  res.render('products/index', {
+     title: 'Produkte', 
+     products, 
+     isTeam});
 };
 
 exports.create = (req, res) => {
+  const image = req.file ? `/uploads/${req.file.filename}` : '/uploads/placeholder.svg';
+  const nextId = `prod-${products.length + 1}`;
   store.upsert('products', {
-    id: uuidv4(),
+    id: nextId,
     name: req.body.name,
     description: req.body.description,
     price: parseFloat(req.body.price),
-    stock: parseInt(req.body.stock, 10)
+    stock: parseInt(req.body.stock, 10),
+    image: image,
+    category: req.body.category
   });
   res.redirect('/produkte');
 };
@@ -41,17 +48,19 @@ exports.addToCart = (req, res) => {
   const product = store.findById('products', req.params.id);
   if (!product) return res.redirect('/produkte');
 
+  const quantity = parseInt(req.body.quantity, 10) || 1;
+
   const cart = req.session.cart || [];
   const existing = cart.find((item) => item.productId === product.id);
 
   if (existing) {
-    existing.quantity += 1;
+    existing.quantity += quantity;
   } else {
     cart.push({
       productId: product.id,
       name: product.name,
       price: product.price,
-      quantity: 1
+      quantity: quantity
     });
   }
 
@@ -95,3 +104,18 @@ exports.removeFromCart = (req, res) => {
   req.session.cart = (req.session.cart || []).filter((item) => item.productId !== req.params.id);
   res.redirect('/warenkorb');
 };
+
+exports.details = (req, res) => {
+  const product = store.findById('products', req.params.id);
+
+  if (!product) {
+    return res.status(404).send("Produkt nicht gefunden");
+  }
+
+  res.render('products/details', {
+    title: product.name,
+    product,
+    user: req.session.user
+  });
+};
+
