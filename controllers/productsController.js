@@ -7,7 +7,35 @@ exports.list = (req, res) => {
   res.render('products/index', { title: 'Produkte', products, isTeam });
 };
 
+exports.create = (req, res) => {
+  store.upsert('products', {
+    id: uuidv4(),
+    name: req.body.name,
+    description: req.body.description,
+    price: parseFloat(req.body.price),
+    stock: parseInt(req.body.stock, 10)
+  });
+  res.redirect('/produkte');
+};
 
+exports.update = (req, res) => {
+  const existing = store.findById('products', req.params.id);
+  if (!existing) return res.redirect('/produkte');
+
+  store.upsert('products', {
+    ...existing,
+    name: req.body.name,
+    description: req.body.description,
+    price: parseFloat(req.body.price),
+    stock: parseInt(req.body.stock, 10)
+  });
+  res.redirect('/produkte');
+};
+
+exports.remove = (req, res) => {
+  store.remove('products', req.params.id);
+  res.redirect('/produkte');
+};
 
 exports.addToCart = (req, res) => {
   const product = store.findById('products', req.params.id);
@@ -66,17 +94,4 @@ exports.checkout = (req, res) => {
 exports.removeFromCart = (req, res) => {
   req.session.cart = (req.session.cart || []).filter((item) => item.productId !== req.params.id);
   res.redirect('/warenkorb');
-};
-exports.details = (req, res) => {
-  const product = store.findById('products', req.params.id);
-
-  if (!product) {
-    return res.status(404).send("Produkt nicht gefunden");
-  }
-
-  res.render('products/details', {
-    title: product.name,
-    product,
-    user: req.session.user
-  });
 };
