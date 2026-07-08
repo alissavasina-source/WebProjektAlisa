@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "b89a28fe-47cd-44f5-aeaf-8790e5ca47a2",
+    "serviceId": "svc-1",
+    "serviceName": "Herrenschnitt",
+    "teamMemberId": "a9d1d519-fdcb-4742-bd73-0ab8fd992b29",
+    "teamMemberName": "1212",
+    "date": "8887-08-08",
+    "time": "10:07",
+    "customerName": "yo",
+    "customerEmail": "yo@gmail.com",
+    "customerPhone": "123",
+    "userId": null,
+    "createdAt": "2026-07-08T08:04:46.442Z"
+  }
+]
