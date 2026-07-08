@@ -30,7 +30,15 @@
     <label>E-Mail<input type="email" name="customerEmail" required value="<%= user ? user.email : '' %>"></label>
     <label>Telefon<input type="tel" name="customerPhone"></label>
 
-    <button type="submit" class="btn btn-primary">Termin reservieren</button>
+    <button type="submit" 
+    class="btn btn-primary"
+    <%= !user ? 'disabled' : '' %>
+    >
+    Termin reservieren
+  </button>
+  <% if(!user) { %>
+    <p class="alert alert-error">Bitte melden Sie sich an, um einen Termin zu buchen.</p>
+  <% } %>
   </form>
 </main>
 <%- include('../partials/foot') %>
