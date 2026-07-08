@@ -4,6 +4,7 @@ const session = require('express-session');
 const config = require('./config/config');
 const { attachUser } = require('./middleware/auth');
 const homeController = require('./controllers/homeController');
+const FileStore = require('session-file-store')(session); // Um ausloggen bei jeder Starten zu vermeiden. Also damit die Session-Daten auf dem Server gespeichert werden und nicht im Speicher des Servers, was dazu führen würde, dass die Session bei jedem Neustart des Servers verloren geht.
 
 const authRoutes = require('./routes/auth');
 const servicesRoutes = require('./routes/services');
@@ -27,6 +28,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(session({
+  store : new FileStore({
+    path: './sessions', // Speicherort für die Sitzungsdateien
+    retries: 1, // Anzahl der Wiederholungsversuche beim Speichern der Sitzung
+  }),
   secret: config.sessionSecret,
   resave: false,
   saveUninitialized: false,
