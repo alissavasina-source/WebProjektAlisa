@@ -1,12 +1,5 @@
 [
   {
-    "id": "svc-1",
-    "name": "Herrenschnitt",
-    "description": "Klassischer Herrenschnitt inkl. Waschen",
-    "price": 28,
-    "duration": 30
-  },
-  {
     "id": "svc-2",
     "name": "Damenhaarschnitt",
     "description": "Individueller Schnitt mit Beratung",
@@ -14,10 +7,17 @@
     "duration": 45
   },
   {
-    "id": "svc-3",
-    "name": "Färben",
-    "description": "Komplettfärbung oder Strähnen",
-    "price": 65,
+    "id": "9b822172-d614-45aa-a1fa-ba3b0c3c642f",
+    "name": "Frauenmittellange",
+    "description": "Haarschnitt fur lange ab Schulter",
+    "price": 46,
+    "duration": 90
+  },
+  {
+    "id": "754b07a1-3f79-4b85-900a-b1546ff9dd86",
+    "name": "Lange Haarschnitt Frau",
+    "description": "Lange ab 50cm",
+    "price": 100,
     "duration": 90
   }
 ]

@@ -19,7 +19,7 @@
           <td><%= s.name %></td>
           <td><%= s.description %></td>
           <td><%= s.duration %></td>
-          <td><%= s.price.toFixed(2) %> €</td>
+          <td><%= (s.price ? Number(s.price).toFixed(2) : '0.00') %> €</td>
         </tr>
       <% }) %>
     </tbody>

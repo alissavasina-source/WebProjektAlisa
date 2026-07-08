@@ -21,6 +21,10 @@ exports.showRegister = (req, res) => {
 exports.register = (req, res) => {
   const { role, bio, services: serviceIds } = req.body;
   const selectedServices = Array.isArray(serviceIds) ? serviceIds : serviceIds ? [serviceIds] : [];
+  let imagePath = '/uploadsTeam/default-avatar.png';
+  if (req.file) {
+    imagePath = `/uploadsTeam/${req.file.filename}`;
+  }
 
   store.upsert('team', {
     id: uuidv4(),
@@ -29,7 +33,8 @@ exports.register = (req, res) => {
     role: role || 'Stylist/in',
     bio: bio || '',
     services: selectedServices,
-    tasks: []
+    tasks: [],
+    imagePath: imagePath
   });
 
   res.redirect('/team/profil');
