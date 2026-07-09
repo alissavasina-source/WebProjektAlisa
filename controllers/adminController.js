@@ -76,7 +76,6 @@ exports.updateProduct = (req, res) => {
   });
   res.redirect('/admin/produkt');
 };
-
 exports.removeProduct= (req, res) => {
   store.remove('products', req.params.id);
   res.redirect('/admin/produkt');
