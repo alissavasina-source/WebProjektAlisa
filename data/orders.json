@@ -37,5 +37,38 @@
     ],
     "total": 402.70000000000005,
     "createdAt": "2026-07-09T13:43:25.393Z"
+  },
+  {
+    "id": "99eb92a0-d4f1-486e-8144-2116f19d79a9",
+    "userId": "a35b7556-d230-4186-bdf4-82ab429d4b70",
+    "userName": "Sakina",
+    "items": [
+      {
+        "productId": "prod-3",
+        "name": "Haarbürste Premium",
+        "price": 22,
+        "quantity": 5
+      },
+      {
+        "productId": "prod-6",
+        "name": "Men Creme",
+        "price": 14.9,
+        "quantity": 2
+      },
+      {
+        "productId": "prod-9",
+        "name": "Men Moisturiser",
+        "price": 12.9,
+        "quantity": 4
+      },
+      {
+        "productId": "prod-1",
+        "name": "Feuchtigkeitsshampoo",
+        "price": 18.5,
+        "quantity": 3
+      }
+    ],
+    "total": 246.9,
+    "createdAt": "2026-07-09T14:22:47.035Z"
   }
 ]

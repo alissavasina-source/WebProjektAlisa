@@ -12,10 +12,9 @@
         <p class="price"><%= p.price.toFixed(2) %> €</p>
       </article>
     <% }) %>
-  </div>
 
   <h2>Frauen Produkte</h2>
-<div class="product-grid">
+<div class="product-buy-box">
   <% products.filter(p => p.category === "women").forEach(function(p) { %>
     <article class="product-card">
       <a href="/produkte/<%= p.id %>">
@@ -25,6 +24,7 @@
       <p class="price"><%= p.price.toFixed(2) %> €</p>
     </article>
   <% }) %>
+</div>
 </div>
 
 <h2>Männer Produkte</h2>

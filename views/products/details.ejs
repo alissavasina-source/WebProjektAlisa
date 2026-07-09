@@ -14,17 +14,19 @@
          <!-- Menge -->
           <div class="buy-controls">
         <div class="quantity-control">
+           <button id="minus" class="qty-btn">-</button>
+            <span id="count">1</span>
           <button id="plus" class="qty-btn">+</button>
           <span id="count">1</span>
-          <button id="minus" class="qty-btn">-</button>
         </div>
-        <!-- Warenkorb -->
+
+        <!--Warenkorb Icon -->
         <form action="/produkte/<%= product.id %>/warenkorb" method="post">
           <a href="/warenkorb" class="cart-link">
   <i class="fa-solid fa-cart-shopping"></i> (<%= cartCount %>)
 </a></form>
 </div>
- <!-- Warenkorb -->
+ <!-- In den Warenkorb -->
         <form action="/produkte/<%= product.id %>/warenkorb" method="post">
           <input type="hidden" name="quantity" id="quantityInput" value="1">
           <button type="submit" class="btn btn-primary cart-btn" <%= product.stock <= 0 ? 'disabled' : '' %>>

@@ -40,5 +40,12 @@
     "name": "Sakina",
     "password": "$2a$10$9.Ahs1ejt0Y6/gYvnrkPJ.3gqsZ2o4WKOTWQP/Hjc9RWuRq/WrUrW",
     "role": "customer"
+  },
+  {
+    "id": "510374ed-fcb6-465d-82df-6a5b7ef46149",
+    "email": "lau@gmail.com",
+    "name": "Laulau",
+    "password": "$2a$10$R.VAaJF/R5yxbM/rWaTVVuhuE3mSY9O/tOo2G.p656C60QoN8GyPO",
+    "role": "customer"
   }
 ]
