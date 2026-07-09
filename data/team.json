@@ -18,7 +18,9 @@
     "role": "Neues Teammitglied",
     "bio": "",
     "services": [
-      "svc-2"
+      "svc-2",
+      "7dd2932f-3737-42e6-a224-54dd87fc1df5",
+      "9b822172-d614-45aa-a1fa-ba3b0c3c642f"
     ],
     "tasks": [],
     "imagePath": "/uploadsTeam/profile-1782903213885-alisa.jpeg"
@@ -28,9 +30,11 @@
     "userId": "9558c03e-207f-47fa-8b00-3f73c2eb571e",
     "name": "333",
     "role": "Neues Teammitglied",
-    "bio": "",
-    "services": [],
+    "bio": "Brenda",
+    "services": [
+      "svc-3"
+    ],
     "tasks": [],
-    "imagePath": ""
+    "imagePath": "/uploadsTeam/profile-1782999327168-brenda.jpeg"
   }
 ]
