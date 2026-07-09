@@ -180,6 +180,79 @@ a:hover {
   border-radius: 8px;
   background: #eee;
 }
+/*details.ejs*/
+/* Produkt-Detailseite Hintergrund */
+.product-detail-page {
+  background: #F7F0E8; /* gleiche milky white Farbe wie Header */
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+/* Wrapper: Bild links, Text rechts */
+.product-detail-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Bildbox */
+.product-detail-image-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+/* Bildgröße fixieren */
+.product-detail-image {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+}
+
+/* Kaufbereich unter dem Bild */
+.product-buy-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #F7F0E8;
+  border-radius: 10px;
+  border: 1px solid #e6e0d8;
+}
+
+/* Menge-Steuerung */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/*was die + und - Buttons betrifft*/
+.qty-btn {
+  background: #2E2A28;
+  color: #F7F0E8;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.qty-btn:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* Beschreibung rechts */
+.product-detail-info {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
 
 /*.admin-container,*/
 .product-grid,
