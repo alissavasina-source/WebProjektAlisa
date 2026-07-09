@@ -11,6 +11,7 @@ exports.list = (req, res) => {
 };
 
 exports.create = (req, res) => {
+  const products = store.read('products'); // Das hier hat gefehlt, um die Produkte zu lesen, bevor wir das nächste ID generieren.
   const image = req.file ? `/uploads/${req.file.filename}` : '/uploads/placeholder.svg';
   const nextId = `prod-${products.length + 1}`;
   store.upsert('products', {

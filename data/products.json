@@ -1,6 +1,6 @@
 [
   {
-    "id": 0,
+    "id": "prod-1",
     "name": "Feuchtigkeitsshampoo",
     "description": "Ein leichtes, nährendes Haarserum mit hochwertigem marokkanischem Arganöl. Es verleiht dem Haar sofort mehr Glanz, reduziert Frizz und schützt vor Hitze. Ideal für trockenes, strapaziertes oder coloriertes Haar.",
     "price": 18.5,
@@ -9,7 +9,7 @@
     "category": "women"
   },
   {
-   "id": 1,
+    "id": "prod-2",
     "name": "Styling-Creme",
     "description": "Eine leichte Styling‑Creme, die dem Haar flexiblen Halt und natürliche Definition verleiht. Ideal für glatte, wellige oder lockige Looks. Pflegt das Haar, bändigt Frizz und sorgt für ein geschmeidiges Finish ohne zu beschweren.",
     "price": 14.9,
@@ -18,7 +18,7 @@
     "category": "women"
   },
   {
-    "id": 2,
+    "id": "prod-3",
     "name": "Haarbürste Premium",
     "description": "Eine hochwertige Haarbürste mit flexiblen, sanften Borsten, die das Haar mühelos entwirren, ohne zu ziepen. Ideal für alle Haartypen – von fein bis kräftig. Perfekt für die tägliche Pflege und ein geschmeidiges, glänzendes Finish",
     "price": 22,
@@ -27,17 +27,17 @@
     "category": "women"
   },
   {
-    "id": 3,
-   "name": "Arganöl‑Haarserum „Silky Shine“",
+    "id": "prod-4",
+    "name": "Arganöl‑Haarserum „Silky Shine“",
     "description": "Ein hochwertiges Arganöl‑Haarserum, das dem Haar tiefe Feuchtigkeit verleiht und es mit einem natürlichen Glanz versorgt. Ideal für trockenes, strapaziertes oder coloriertes Haar.",
     "price": 19.9,
     "stock": 8,
     "image": "/uploads/Hairoil.png",
     "category": "women"
   },
-{
-    "id": 4,
-   "name": "Bart flegeöl",
+  {
+    "id": "prod-5",
+    "name": "Bart flegeöl",
     "description": "Ein leichtes, nährendes Haarserum mit hochwertigem marokkanischem Arganöl. Es verleiht dem Haar sofort mehr Glanz, reduziert Frizz und schützt vor Hitze. Ideal für trockenes, strapaziertes oder coloriertes Haar.",
     "price": 18.5,
     "stock": 10,
@@ -45,7 +45,7 @@
     "category": "men"
   },
   {
-    "id": 5,
+    "id": "prod-6",
     "name": "Men Creme",
     "description": "Eine leichte Styling‑Creme, die dem Haar flexiblen Halt und natürliche Definition verleiht. Ideal für glatte, wellige oder lockige Looks. Pflegt das Haar, bändigt Frizz und sorgt für ein geschmeidiges Finish ohne zu beschweren.",
     "price": 14.9,
@@ -53,16 +53,17 @@
     "image": "/uploads/mencreme.png",
     "category": "men"
   },
- {
-   "id": 6,
+  {
+    "id": "prod-7",
     "name": "Hitzeschutzspray",
     "description": "Ein leistungsstarkes Hitzeschutzspray, das das Haar vor den schädlichen Auswirkungen von Wärmeverdichtern und Föhnen schützt. Verleiht dem Haar Glanz und lässt es leichter stylen.",
     "price": 16.5,
     "stock": 14,
-    "image": "/uploads/Spray.png"
+    "image": "/uploads/Spray.png",
+    "category": "men"
   },
   {
-    "id": 7,
+    "id": "prod-8",
     "name": "Volumenpuder",
     "description": "Ein leistungsstarker Volumenpuder, der dem Haar voluminöse Definition verleiht und es für einen frischen, natürlichen Look sorgt.",
     "price": 12.9,
@@ -71,9 +72,8 @@
     "category": "men"
   },
   {
-    "id": 8,
+    "id": "prod-9",
     "name": "Men Moisturiser",
-    "description": "Ein leichtes, feuchtigkeitsspendendes Serum, das die Haut mit Nährstoffen versorgt und sie den ganzen Tag über hydratisiert hält. Ideal für trockene oder empfindliche Haut.",
     "price": 12.9,
     "stock": 19,
     "image": "/uploads/Moisturiser.png",
