@@ -2,21 +2,52 @@
 <main class="container admin-page">
   <%- include('../partials/adminMenu') %>
   <div class="admin-container">
-  <h1>Produkte</h1>
-    <section class="form-section">
-      <h2>Produkt verwalten</h2>
-      <% products.forEach(function(p) { %>
-        <form action="/admin/produkt/<%= p.id %>/bearbeiten" method="post" class="form-grid inline-edit">
-          <input type="text" name="name" value="<%= p.name %>" required>
-          <input type="text" name="description" value="<%= p.description %>" required>
-          <input type="number" name="price" value="<%= p.price %>" step="0.01" min="0" required>
-          <input type="number" name="stock" value="<%= p.stock %>" min="0" required>
+  <h2>Produkte verwalten</h2>
+  <% if (products.length === 0) { %>
+    <p>Keine Produkte vorhanden.</p>
+  <% } %>
+
+  <% products.forEach(function(p) { %>
+    <div class="product-edit-box" style="background: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #ddd;">
+      
+      <form action="/admin/produkt/<%= p.id %>/bearbeiten" method="post" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+        
+        <div style="flex: 1; min-width: 150px;">
+          <label style="display: block; font-size: 0.8rem; color: #666;">Produktname</label>
+          <input type="text" name="name" value="<%= p.name %>" style="width: 100%; padding: 5px;" required>
+        </div>
+
+        <div style="flex: 2; min-width: 200px;">
+          <label style="display: block; font-size: 0.8rem; color: #666;">Beschreibung</label>
+          <input type="text" name="description" value="<%= p.description %>" style="width: 100%; padding: 5px;" required>
+        </div>
+
+        <div style="flex: 1; min-width: 80px;">
+          <label style="display: block; font-size: 0.8rem; color: #666;">Preis (€)</label>
+          <input type="number" name="price" value="<%= p.price %>" step="0.01" min="0" style="width: 100%; padding: 5px;" required>
+        </div>
+
+        <div style="flex: 1; min-width: 80px;">
+          <label style="display: block; font-size: 0.8rem; color: #666;">Bestand</label>
+          <input type="number" name="stock" value="<%= p.stock %>" min="0" style="width: 100%; padding: 5px;" required>
+        </div>
+
+        <div style="padding-top: 15px;">
           <button type="submit" class="btn btn-small">Speichern</button>
+        </div>
+      </form> 
+      <div style="margin-top: 10px; text-align: right;">
+        <form action="/admin/produkt/<%= p.id %>/loeschen" method="post" style="display: inline;" onsubmit="return confirm('Produkt wirklich löschen?');">
+          <button type="submit" class="btn btn-small btn-danger">Dieses Produkt löschen</button>
         </form>
-        <form action="/admin/produkt/<%= p.id %>/loeschen" method="post" class="inline-form">
-          <button type="submit" class="btn btn-small btn-danger">Löschen</button>
-        </form>
-      <% }) %>
+      </div>
+
+    </div>
+  <% }) %>
+
+  <br><br>
+  <hr>
+  <br>
 
       <h3>Neues Produkt</h3>
       <form action="/admin/produkt" method="post" class="form-grid">
