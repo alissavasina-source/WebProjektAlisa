@@ -112,10 +112,14 @@ a:hover {
 .cart-link {
   font-size: 0.9rem;
   font-weight: 600;
-  background: #f3ebe4;
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
 }
+/*Icon etwas größer machen*/
+.cart-link i {
+  font-size: 1rem;
+}
+
 
 .inline-form {
   display: inline;

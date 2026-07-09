@@ -74,6 +74,7 @@
   {
     "id": "prod-9",
     "name": "Men Moisturiser",
+    "description": "Ein leichtes, feuchtigkeitsspendendes Serum, das die Haut mit Nährstoffen versorgt und sie geschmeidig und gesund aussehen lässt. Ideal für trockene oder strapazierte Haut.",
     "price": 12.9,
     "stock": 19,
     "image": "/uploads/Moisturiser.png",
