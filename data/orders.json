@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "id": "2df8b483-bd8a-495b-b05f-6a3c5a2c16f9",
+    "userId": "a35b7556-d230-4186-bdf4-82ab429d4b70",
+    "userName": "Sakina",
+    "items": [
+      {
+        "productId": "prod-7",
+        "name": "Hitzeschutzspray",
+        "price": 16.5,
+        "quantity": 2
+      },
+      {
+        "productId": "prod-9",
+        "name": "Men Moisturiser",
+        "price": 12.9,
+        "quantity": 9
+      },
+      {
+        "productId": "prod-2",
+        "name": "Styling-Creme",
+        "price": 14.9,
+        "quantity": 4
+      },
+      {
+        "productId": "prod-8",
+        "name": "Volumenpuder",
+        "price": 12.9,
+        "quantity": 5
+      },
+      {
+        "productId": "prod-5",
+        "name": "Bart flegeöl",
+        "price": 18.5,
+        "quantity": 7
+      }
+    ],
+    "total": 402.70000000000005,
+    "createdAt": "2026-07-09T13:43:25.393Z"
+  }
+]

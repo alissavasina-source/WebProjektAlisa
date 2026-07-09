@@ -13,7 +13,7 @@
     "name": "Styling-Creme",
     "description": "Eine leichte Styling‑Creme, die dem Haar flexiblen Halt und natürliche Definition verleiht. Ideal für glatte, wellige oder lockige Looks. Pflegt das Haar, bändigt Frizz und sorgt für ein geschmeidiges Finish ohne zu beschweren.",
     "price": 14.9,
-    "stock": 36,
+    "stock": 32,
     "image": "/uploads/Creme.webp",
     "category": "women"
   },
@@ -40,7 +40,7 @@
     "name": "Bart flegeöl",
     "description": "Ein leichtes, nährendes Haarserum mit hochwertigem marokkanischem Arganöl. Es verleiht dem Haar sofort mehr Glanz, reduziert Frizz und schützt vor Hitze. Ideal für trockenes, strapaziertes oder coloriertes Haar.",
     "price": 18.5,
-    "stock": 10,
+    "stock": 3,
     "image": "/uploads/Bart.png",
     "category": "men"
   },
@@ -58,7 +58,7 @@
     "name": "Hitzeschutzspray",
     "description": "Ein leistungsstarkes Hitzeschutzspray, das das Haar vor den schädlichen Auswirkungen von Wärmeverdichtern und Föhnen schützt. Verleiht dem Haar Glanz und lässt es leichter stylen.",
     "price": 16.5,
-    "stock": 14,
+    "stock": 12,
     "image": "/uploads/Spray.png",
     "category": "men"
   },
@@ -67,7 +67,7 @@
     "name": "Volumenpuder",
     "description": "Ein leistungsstarker Volumenpuder, der dem Haar voluminöse Definition verleiht und es für einen frischen, natürlichen Look sorgt.",
     "price": 12.9,
-    "stock": 19,
+    "stock": 14,
     "image": "/uploads/volume.png",
     "category": "men"
   },
@@ -76,7 +76,7 @@
     "name": "Men Moisturiser",
     "description": "Ein leichtes, feuchtigkeitsspendendes Serum, das die Haut mit Nährstoffen versorgt und sie geschmeidig und gesund aussehen lässt. Ideal für trockene oder strapazierte Haut.",
     "price": 12.9,
-    "stock": 19,
+    "stock": 10,
     "image": "/uploads/Moisturiser.png",
     "category": "men"
   }
