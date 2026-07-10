@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+const { randomUUID } = require('crypto');
 const store = require('../utils/jsonStore');
 
 function getMemberForUser(userId) {
@@ -12,7 +12,7 @@ exports.list = (req, res) => {
 
 exports.showRegister = (req, res) => {
   const existing = getMemberForUser(req.session.user.id);
-  if (existing) return res.redirect('/team/profil');
+ if (existing) return res.redirect('/team/profil/me');
 
   const services = store.read('services');
   res.render('team/register', { title: 'Team-Registrierung', services, error: null });
@@ -27,7 +27,7 @@ exports.register = (req, res) => {
   }
 
   store.upsert('team', {
-    id: uuidv4(),
+    id: randomUUID(),
     userId: req.session.user.id,
     name: req.session.user.name,
     role: role || 'Stylist/in',
@@ -37,14 +37,86 @@ exports.register = (req, res) => {
     imagePath: imagePath
   });
 
+
   //res.redirect('/admin/profile');
   res.redirect('/');
 };
 
 
+
+ res.redirect('/team/profil/me');{
+};
+
+
+exports.addTask = (req, res) => {
+  const member = getMemberForUser(req.session.user.id);
+  if (!member) return res.redirect('/team/registrieren/me');
+
+  member.tasks = member.tasks || [];
+  member.tasks.push({ id: uuidv4(), title: req.body.title, done: false });
+  store.upsert('team', member);
+ res.redirect('/team/profil/me');
+};
+
+exports.toggleTask = (req, res) => {
+  const member = getMemberForUser(req.session.user.id);
+if (!member) return res.redirect('/team/registrieren/me');
+
+  const task = member.tasks.find((t) => t.id === req.params.taskId);
+  if (task) task.done = !task.done;
+  store.upsert('team', member);
+ res.redirect('/team/profil/me');
+};
+
+exports.removeTask = (req, res) => {
+  const member = getMemberForUser(req.session.user.id);
+if (!member) return res.redirect('/team/registrieren/me');
+
+  member.tasks = member.tasks.filter((t) => t.id !== req.params.taskId);
+  store.upsert('team', member);
+ res.redirect('/team/profil/me');
+};
+
+736145b (css)
 exports.showMember = (req, res) => {
   const member = store.findById('team', req.params.id);
   if (!member) return res.redirect('/team');
   const services = store.read('services').filter((s) => member.services.includes(s.id));
   res.render('team/member', { title: member.name, member, services });
 };
+
+
+
+exports.showProfile = (req, res) => {
+  const member = getMemberForUser(req.session.user.id);
+
+  if (!member) {
+    return res.redirect('/team/registrieren/me');
+  }
+
+  const services = store
+    .read('services')
+    .filter((service) => member.services.includes(service.id));
+
+  res.render('team/profile', {
+    title: 'Mein Profil',
+    member,
+    services
+  });
+};
+
+exports.updateProfile = (req, res) => {
+  const member = getMemberForUser(req.session.user.id);
+
+  if (!member) {
+    return res.redirect('/team/registrieren/me');
+  }
+
+  member.role = req.body.role || member.role;
+  member.bio = req.body.bio || member.bio;
+
+  store.upsert('team', member);
+
+  res.redirect('/team/profil/me');
+};
+
