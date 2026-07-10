@@ -4,14 +4,14 @@
     "name": "Damenhaarschnitt",
     "description": "Individueller Schnitt mit Beratung",
     "price": 45,
-    "duration": 45
+    "duration": 40
   },
   {
     "id": "9b822172-d614-45aa-a1fa-ba3b0c3c642f",
     "name": "Frauenmittellange",
     "description": "Haarschnitt fur lange ab Schulter",
     "price": 46,
-    "duration": 90
+    "duration": 50
   },
   {
     "id": "754b07a1-3f79-4b85-900a-b1546ff9dd86",

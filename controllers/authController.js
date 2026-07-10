@@ -59,7 +59,7 @@ exports.register = (req, res) => {
   }
 
   req.session.user = { id: user.id, email, name, role: user.role };
-  res.redirect(isTeam ? '/team/profil/me' : '/');
+  res.redirect(isTeam ? '/admin/profile' : '/');
 };
 
 exports.logout = (req, res) => {
