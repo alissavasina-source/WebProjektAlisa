@@ -52,6 +52,109 @@ app.use('/warenkorb', cartRoutes);
 app.use('/team', teamRoutes);
 app.use('/admin', adminRoutes);
 
+
+app.get('/admin', (req, res) => {
+    res.render('admin/index');
+});
+
+
+app.get('/api/portfolio', (req, res) => {
+    res.json([
+        { id: 1, title: 'Haarschnitt', image: '/uploads/startseite.jpg' },
+        { id: 2, title: 'Coloration', image: '/uploads/startseite.jpg' }
+    ]);
+});
+
+
+app.post('/admin/portfolio', (req, res) => {
+
+    // später Bild speichern
+
+    res.redirect('/portfolio');
+
+});
+
+
+app.get('/api/team', (req, res) => {
+    res.json([
+        {
+            id: 1,
+            name: "Narges",
+            job: "Stylist",
+            image: "/images/narges.jpeg"
+        },
+        {
+            id: 2,
+            name: "Brenda",
+            job: "Color Expert",
+            image: "/images/brenda.jpeg"
+        },
+        {
+            id: 3,
+            name: "Alisa",
+            job: "Hairdresser",
+            image: "/images/alisa.jpeg"
+        }
+    ]);
+});
+
+
+
+app.get('/api/products', (req, res) => {
+    res.json([
+        {
+            id: 1,
+            name: "Shampoo",
+            price: 12.99
+        },
+        {
+            id: 2,
+            name: "Conditioner",
+            price: 10.99
+        }
+    ]);
+});
+
+
+
+app.get('/api/services', (req, res) => {
+    res.json([
+        {
+            id: 1,
+            name: "Haarschnitt",
+            price: 25
+        },
+        {
+            id: 2,
+            name: "Coloration",
+            price: 60
+        }
+    ]);
+});
+
+
+
+
+app.post('/admin/team', (req, res) => {
+    res.redirect('/admin');
+});
+
+app.post('/admin/products', (req, res) => {
+    res.redirect('/admin');
+});
+
+app.post('/admin/services', (req, res) => {
+    res.redirect('/admin');
+});
+
+app.post('/admin/termine', (req, res) => {
+    res.redirect('/admin');
+});
+
+
+
+
+
 app.use((req, res) => {
   res.status(404).render('error', { title: 'Nicht gefunden', message: 'Seite nicht gefunden.' });
 });
