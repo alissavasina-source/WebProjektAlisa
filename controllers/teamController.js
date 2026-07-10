@@ -37,38 +37,10 @@ exports.register = (req, res) => {
     imagePath: imagePath
   });
 
-  res.redirect('/team/profil');
+  //res.redirect('/admin/profile');
+  res.redirect('/');
 };
 
-
-exports.addTask = (req, res) => {
-  const member = getMemberForUser(req.session.user.id);
-  if (!member) return res.redirect('/team/registrieren');
-
-  member.tasks = member.tasks || [];
-  member.tasks.push({ id: uuidv4(), title: req.body.title, done: false });
-  store.upsert('team', member);
-  res.redirect('/team/profil');
-};
-
-exports.toggleTask = (req, res) => {
-  const member = getMemberForUser(req.session.user.id);
-  if (!member) return res.redirect('/team/profil');
-
-  const task = member.tasks.find((t) => t.id === req.params.taskId);
-  if (task) task.done = !task.done;
-  store.upsert('team', member);
-  res.redirect('/team/profil');
-};
-
-exports.removeTask = (req, res) => {
-  const member = getMemberForUser(req.session.user.id);
-  if (!member) return res.redirect('/team/profil');
-
-  member.tasks = member.tasks.filter((t) => t.id !== req.params.taskId);
-  store.upsert('team', member);
-  res.redirect('/team/profil');
-};
 
 exports.showMember = (req, res) => {
   const member = store.findById('team', req.params.id);

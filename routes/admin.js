@@ -16,35 +16,13 @@ const teamStorage = multer.diskStorage({
   }
 });
 const uploadTeam = multer({ storage: teamStorage });
-router.get('/profile', requireLogin, requireTeam, controller.showProfile);
+//router.get('/profile', requireLogin, requireTeam, controller.showProfile);
+router.get('/profile',requireTeam, controller.showProfile);
 router.post('/profile', requireLogin, requireTeam,uploadTeam.single('profileImage'), controller.updateProfile);
 
 // 2. Buchungen
 router.get('/list', requireLogin, requireTeam, controller.showBookingList);
 router.post('/termin/stornieren/:id', requireLogin, requireTeam, controller.deleteAppointment);
-
-// 3. Portfolio
-const storage = multer.diskStorage({
-  destination: config.uploadDir,
-  filename: (_req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname.replace(/\s+/g, '-')}`);
-  }
-});
-
-const upload = multer({
-  storage,
-  fileFilter: (_req, file, cb) => {
-    const allowed = /jpeg|jpg|png|gif|webp|svg/;
-    const ext = allowed.test(path.extname(file.originalname).toLowerCase());
-    const mime = allowed.test(file.mimetype);
-    cb(null, ext && mime);
-  }
-});
-router.get('/', controller.listPortfolio);
-router.get('/portfolio', requireLogin, requireTeam, controller.showPortfolio);
-router.post('/portfolio/neu', requireLogin, requireTeam, controller.createPortfolio);
-router.post('/portfolio/:id/loeschen', requireLogin, requireTeam, controller.removePortfolio);
-
 
 
 // 4. Produkte

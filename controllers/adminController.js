@@ -23,34 +23,6 @@ exports.deleteAppointment = (req, res) => {
     res.redirect('/admin/list'); 
 };
 
-//portfolio
-exports.listPortfolio = (req, res) => {
-  const items = store.read('portfolio');
-  const isTeam = req.session.user?.role === 'team';
-  res.render('admin/portfolio', { title: 'Portfolio', items, isTeam,
-  });
-};
-
-exports.createPortfolio = (req, res) => {
-  const image = req.file ? `/uploads/${req.file.filename}` : '/uploads/placeholder-1.svg';
-  store.upsert('portfolio', {
-    id: uuidv4(),
-    title: req.body.title,
-    description: req.body.description,
-    image
-  });
-  res.redirect('/admin/portfolio');
-};
-
-exports.removePortfolio= (req, res) => {
-  store.remove('portfolio', req.params.id);
-  res.redirect('/admin/portfolio');
-};
-
-exports.showPortfolio = (req, res) => {
-  // Rendert die Datei views/portfolio.ejs und übergibt einen Titel
-  res.render('admin/portfolio', { title: 'Portfolio / Bildergalerie' });
-};
 //Produkt
 exports.createProduct = (req, res) => {
   store.upsert('products', {
@@ -149,6 +121,7 @@ exports.showProfile = (req, res) => {
   res.render('admin/profile', { title: 'Mein Profil', member, services, saved: false,});
   };
 //Produkts
+
   exports.showProducts = (req, res) => {
   const products = store.read('products') || [];
   res.render('admin/produkt', { title: 'Produkte verwalten', products }); // Hier heißt es "products"
