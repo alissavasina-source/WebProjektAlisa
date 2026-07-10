@@ -1,37 +1,32 @@
-<header class="site-header">
-  <div class="header-inner">
-    <div class="header-left">
-      <a href="/" class="logo"><%= salonName %></a>
-    </div>
+<!DOCTYPE html> 
+<html lang="de"> 
+ <head>
+ <meta charset="UTF-8">
+    <title>H - Haarschnitt Atelier Kassel</title> 
+    <link rel="stylesheet" href="/css/style.css"> 
+</head> 
+<body>
+ <header class="header">
+  <div class="logo">H - Haarschnitt Atelier Kassel</div>
 
-    <nav class="header-nav">
-      <a href="/">Start</a>
-      <a href="/services">Services</a>
-      <a href="/portfolio">Portfolio</a>
-      <a href="/termin">Termin</a>
-      <a href="/produkte">Produkte</a>
-      <a href="/team">Team</a>
-    </nav>
+  <nav class="navbar">
+    <a href="/">Startseite</a>
+    <a href="/services">Dienstleistungen</a>
+    <a href="/produkte">Produkte</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/team">Team</a>
+  </nav>
 
-    <div class="header-right">
-      <div class="auth-links">
-        <% if (user) { %>
-          <% if (user.role === 'team') { %>
-            <a href="/admin/profile" class="user-greeting text-link">💼 Hallo, <%= user.name %> (Team)</a>
-          <% } else { %>
-           <span class="user-greeting">Hallo, <%= user.name %></span>
-          <% } %>
-          <form action="/abmelden" method="post" class="inline-form">
-            <button type="submit" class="link-btn">Abmelden</button>
-          </form>
-        <% } else { %>
-          <a href="/anmelden">Anmelden</a>
-          <a href="/registrieren">Registrieren</a>
-        <% } %>
-      </div>
-      <a href="/warenkorb" class="cart-link">
-  <i class="fa-solid fa-cart-shopping"></i> (<%= cartCount %>)
-</a>
-    </div>
+  <div class="header-right">
+    <a href="/anmelden">Anmelden</a>
+    <a href="/registrieren">Registrieren</a>
+    <a href="/termin">Termin</a>
+
+    <a href="/warenkorb" class="cart-link">
+      <svg class="cart-icon" viewBox="0 0 24 24">
+        <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.2 14.5c-.75 0-1.4-.41-1.75-1.03L2 4H0V2h3.3l3.6 9.59L5.55 14A2 2 0 0 0 7.2 17H19v-2H7.2zM7 12h9.55c.75 0 1.41-.41 1.75-1.03L22 4H5.21l.94 2H18.6l-2.05 4H7z"/>
+      </svg>
+      (0)
+    </a>
   </div>
 </header>
