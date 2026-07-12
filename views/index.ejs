@@ -6,19 +6,18 @@
     <div class="hero-text">
         <h2> Willkommen bei H – Haarschnitt Atelier Kassel</h2>
 
-        <p>
-            Ihr Friseursalon für moderne Haarschnitte,
-            Styling und Beratung.
-        </p>
+      <p>
+       <%= (typeof content !== 'undefined' && content && content.welcomeText) ? content.welcomeText : 'Ihr Friseursalon für moderne Haarschnitte, Styling und Beratung.' %>
+      </p>
 
-        <div class="hero-buttons">
-            <a class="button" href="/booking">Termin buchen</a>
-            <a class="button" href="/team">Unser Team vorstellen</a>
-        </div>
+      <div class="hero-buttons">
+       <a class="button" href="/termin">Termin buchen</a>
+       <a class="button" href="/team">Unser Team vorstellen</a>
+       </div>
     </div>
 
     <div class="hero-image">
-        <img src="/uploads/startseite.jpg" alt="Salon">
+        <img src="<%= content.imagePath || '/uploadsProduct/home.jpg' %>" alt="Salon">
     </div>
 
 </div>

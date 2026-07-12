@@ -21,16 +21,28 @@ exports.deleteAppointment = (req, res) => {
     const appointmentId = req.params.id; 
     store.remove('appointments', appointmentId);  
     res.redirect('/admin/list'); 
+
 };
 
 //Produkt
 exports.createProduct = (req, res) => {
+  console.log('--- NEUER UPLOAD-VERSUCH ---');
+  console.log('Erhaltener Text-Body:', req.body); // Sollte Name, Preis etc. zeigen
+  console.log('Erhaltener Date-req.file:', req.file); // <--- DAS IST ENTSCHEIDEND!
+  console.log('---------------------------');
+  let imagePath = '/uploadsProduct/produktPlaceholder.png';
+   if (req.file) {
+    // Da dein Ordner 'public/uploadsTeam' heißt, lautet der Pfad für den Browser '/uploadsTeam/dateiname'
+    imagePath = `/uploadsProduct/${req.file.filename}`;
+  }
   store.upsert('products', {
     id: uuidv4(),
     name: req.body.name,
     description: req.body.description,
     price: parseFloat(req.body.price),
-    stock: parseInt(req.body.stock, 10)
+    stock: parseInt(req.body.stock, 10),
+    category: req.body.category,
+    imagePath:imagePath,
   });
   res.redirect('/admin/produkt');
 };
@@ -39,12 +51,19 @@ exports.updateProduct = (req, res) => {
   const existing = store.findById('products', req.params.id);
   if (!existing) return res.redirect('/admin/produkt');
 
+  let imagePath = existing.imagePath ||'/uploadsProduct/produktPlaceholder.png';
+   if (req.file) {
+    imagePath = `/uploadsProduct/${req.file.filename}`;
+  }
+
   store.upsert('products', {
     ...existing,
     name: req.body.name,
     description: req.body.description,
     price: parseFloat(req.body.price),
-    stock: parseInt(req.body.stock, 10)
+    stock: parseInt(req.body.stock, 10),
+    category: req.body.category,
+    imagePath:imagePath,
   });
   res.redirect('/admin/produkt');
 };
@@ -130,4 +149,46 @@ exports.listServices = (req, res) => {
   const services = store.read('services') || [];
   // Rendert die Admin-Ansicht und übergibt die Services
   res.render('admin/services', { title: 'Services verwalten', services });
+};
+//home
+exports.updateHome = (req, res) => {
+ // console.log("Formular-Text:", req.body);
+ // console.log("Hochgeladene Datei:", req.file);
+  const data = store.read('homepage') || [];
+  const existing = data.find(item => item.id === 'hero-content');
+
+  // Wenn kein neues Bild hochgeladen wurde, nimm das existierende.
+  // Wenn es das auch nicht gibt, nimm das originale Standardbild!
+  let imagePath = '/uploads/startseite.jpg';
+  if (existing && existing.imagePath) {
+    imagePath = existing.imagePath;
+  }
+  
+  // Falls die Admin-Person ein neues Bild hochgeladen hat, überschreiben wir es
+  if (req.file) {
+    imagePath = `/uploadsProduct/${req.file.filename}`;
+  }
+
+  // In der JSON speichern/aktualisieren
+  store.upsert('homepage', {
+    id: 'hero-content', // Bleibt immer gleich
+    welcomeText: req.body.welcomeText,
+    imagePath: imagePath
+  });
+};
+exports.showAdminHome = (req, res) => {
+  // Aktuelle Daten aus der JSON lesen, damit der Admin sieht, was gerade live ist
+  const data = store.read('homepage') || [];
+  let content = data.find(item => item.id === 'hero-content');
+
+  // Falls noch nichts in der JSON steht, leere Standardwerte übergeben
+  if (!content) {
+    content = {
+      welcomeText: 'Ihr Friseursalon für moderne Haarschnitte, Styling und Beratung.',
+      imagePath: '/uploadsProduct/home.jpg'
+    };
+  }
+
+  // Rendert die Datei: views/admin/home.ejs
+  res.render('admin/home', { content }); 
 };

@@ -9,7 +9,7 @@ exports.list = (req, res) => {
      products, 
      isTeam});
 };
-
+/*
 exports.create = (req, res) => {
   const products = store.read('products'); // Das hier hat gefehlt, um die Produkte zu lesen, bevor wir das nächste ID generieren.
   const image = req.file ? `/uploads/${req.file.filename}` : '/uploads/placeholder.svg';
@@ -44,6 +44,7 @@ exports.remove = (req, res) => {
   store.remove('products', req.params.id);
   res.redirect('/produkte');
 };
+*/
 
 exports.addToCart = (req, res) => {
   const product = store.findById('products', req.params.id);

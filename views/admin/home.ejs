@@ -2,7 +2,20 @@
 <main class="container admin-page">
   <%- include('../partials/adminMenu') %>
   <div class="admin-container">
-  <h1>Startseite verwalten</h1>
-  </div>
+  <h3>Startseite anpassen</h3>
+<form action="/admin/home/bearbeiten" method="post" enctype="multipart/form-data" class="form-grid" style="background: #f9f9f9; padding: 20px; border-radius: 6px; border: 1px solid #ddd;">
+  
+  <label style="display: block; margin-bottom: 10px;">
+    <strong>Willkommenstext:</strong>
+    <textarea name="welcomeText" rows="4" style="width: 100%; padding: 8px; margin-top: 5px;" required><%= content.welcomeText || '' %></textarea>
+  </label>
+
+  <label style="display: block; margin-bottom: 15px;">
+    <strong>Hintergrundbild ändern (Rechte Seite):</strong>
+    <input type="file" name="heroImage" accept="image/*" style="display: block; margin-top: 5px;">
+  </label>
+
+  <button type="submit" class="btn btn-primary">Startseite aktualisieren</button>
+</form>
 </main>
 <%- include('../partials/foot') %>

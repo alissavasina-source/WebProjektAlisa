@@ -4,9 +4,9 @@
     "name": "Feuchtigkeitsshampoo",
     "description": "Ein leichtes, nährendes Haarserum mit hochwertigem marokkanischem Arganöl. Es verleiht dem Haar sofort mehr Glanz, reduziert Frizz und schützt vor Hitze. Ideal für trockenes, strapaziertes oder coloriertes Haar.",
     "price": 18.5,
-    "stock": 8,
-    "image": "/uploads/Shampo.jpeg",
-    "category": "women"
+    "stock": 9,
+    "category": "Allgemein",
+    "imagePath": "/uploadsProduct/Shampo.jpeg"
   },
   {
     "id": "prod-2",
@@ -14,8 +14,8 @@
     "description": "Eine leichte Styling‑Creme, die dem Haar flexiblen Halt und natürliche Definition verleiht. Ideal für glatte, wellige oder lockige Looks. Pflegt das Haar, bändigt Frizz und sorgt für ein geschmeidiges Finish ohne zu beschweren.",
     "price": 14.9,
     "stock": 32,
-    "image": "/uploads/Creme.webp",
-    "category": "women"
+    "category": "women",
+    "imagePath": "/uploadsProduct/produktPlaceholder.png"
   },
   {
     "id": "prod-3",
@@ -23,8 +23,8 @@
     "description": "Eine hochwertige Haarbürste mit flexiblen, sanften Borsten, die das Haar mühelos entwirren, ohne zu ziepen. Ideal für alle Haartypen – von fein bis kräftig. Perfekt für die tägliche Pflege und ein geschmeidiges, glänzendes Finish",
     "price": 22,
     "stock": 5,
-    "image": "/uploads/Brush.jpg",
-    "category": "women"
+    "category": "women",
+    "imagePath": "/uploadsProduct/Brush.jpg"
   },
   {
     "id": "prod-4",
@@ -32,8 +32,8 @@
     "description": "Ein hochwertiges Arganöl‑Haarserum, das dem Haar tiefe Feuchtigkeit verleiht und es mit einem natürlichen Glanz versorgt. Ideal für trockenes, strapaziertes oder coloriertes Haar.",
     "price": 19.9,
     "stock": 8,
-    "image": "/uploads/Hairoil.png",
-    "category": "women"
+    "category": "women",
+    "imagePath": "/uploadsProduct/produktPlaceholder.png"
   },
   {
     "id": "prod-5",
@@ -41,8 +41,8 @@
     "description": "Ein leichtes, nährendes Haarserum mit hochwertigem marokkanischem Arganöl. Es verleiht dem Haar sofort mehr Glanz, reduziert Frizz und schützt vor Hitze. Ideal für trockenes, strapaziertes oder coloriertes Haar.",
     "price": 18.5,
     "stock": 3,
-    "image": "/uploads/Bart.png",
-    "category": "men"
+    "category": "men",
+    "imagePath": "/uploadsProduct/produkt-1783861665170-images.png"
   },
   {
     "id": "prod-6",
@@ -50,8 +50,8 @@
     "description": "Eine leichte Styling‑Creme, die dem Haar flexiblen Halt und natürliche Definition verleiht. Ideal für glatte, wellige oder lockige Looks. Pflegt das Haar, bändigt Frizz und sorgt für ein geschmeidiges Finish ohne zu beschweren.",
     "price": 14.9,
     "stock": 34,
-    "image": "/uploads/mencreme.png",
-    "category": "men"
+    "category": "men",
+    "imagePath": "/uploadsProduct/produktPlaceholder.png"
   },
   {
     "id": "prod-7",
@@ -59,8 +59,8 @@
     "description": "Ein leistungsstarkes Hitzeschutzspray, das das Haar vor den schädlichen Auswirkungen von Wärmeverdichtern und Föhnen schützt. Verleiht dem Haar Glanz und lässt es leichter stylen.",
     "price": 16.5,
     "stock": 12,
-    "image": "/uploads/Spray.png",
-    "category": "men"
+    "category": "men",
+    "imagePath": "/uploadsProduct/produktPlaceholder.png"
   },
   {
     "id": "prod-8",
@@ -68,8 +68,8 @@
     "description": "Ein leistungsstarker Volumenpuder, der dem Haar voluminöse Definition verleiht und es für einen frischen, natürlichen Look sorgt.",
     "price": 12.9,
     "stock": 14,
-    "image": "/uploads/volume.png",
-    "category": "men"
+    "category": "men",
+    "imagePath": "/uploadsProduct/produktPlaceholder.png"
   },
   {
     "id": "prod-9",
@@ -77,7 +77,16 @@
     "description": "Ein leichtes, feuchtigkeitsspendendes Serum, das die Haut mit Nährstoffen versorgt und sie geschmeidig und gesund aussehen lässt. Ideal für trockene oder strapazierte Haut.",
     "price": 12.9,
     "stock": 10,
-    "image": "/uploads/Moisturiser.png",
-    "category": "men"
+    "category": "men",
+    "imagePath": "/uploadsProduct/produktPlaceholder.png"
+  },
+  {
+    "id": "9f514d82-2f11-4d95-9238-67061b010a2b",
+    "name": "Haarschampoo",
+    "description": "wird sehr schon",
+    "price": 23,
+    "stock": 23,
+    "category": "women",
+    "imagePath": "/uploadsProduct/produkt-1783861863003-images.png"
   }
 ]

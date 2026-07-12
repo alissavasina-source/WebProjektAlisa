@@ -602,3 +602,69 @@ main.container.admin-page {
     border: 3px solid #eee;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
+/*home*/
+.hero-container {
+    display: flex;
+    align-items: center;      /* Zentriert Text und Bild vertikal zueinander */
+    justify-content: space-between; /* Schafft maximalen Platz zwischen Text und Bild */
+    gap: 40px;                /* Abstand zwischen der Textbox und dem Bild */
+    margin: 50px auto;        /* Abstand nach oben/unten und zentriert den Container */
+    max-width: 1200px;        /* Maximale Breite der Startseite */
+    padding: 0 20px;          /* Sicherheitsabstand zu den Bildschirmrändern */
+}
+
+/* 2. Die linke Textbox */
+.hero-text {
+    flex: 1;                  /* Nimmt gleichmäßig Platz ein */
+    min-width: 300px;         /* Verhindert, dass der Text zu schmal gequetscht wird */
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;              /* Deine Wunschfarbe für die Überschrift */
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;              /* Etwas weicheres Grau für den Fließtext */
+    margin-bottom: 30px;
+}
+
+/* Styling für die Buttons unter dem Text */
+.hero-buttons {
+    display: flex;
+    gap: 15px;                /* Abstand zwischen den beiden Buttons */
+}
+
+.hero-buttons .button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #333;   /* Hintergrundfarbe deiner Buttons */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.hero-buttons .button:hover {
+    background-color: #555;   /* Farbe, wenn man mit der Maus drüber fährt */
+}
+
+/* 3. Die rechte Bildbox */
+.hero-image {
+    flex: 1;                  /* Nimmt ebenfalls gleichmäßig Platz ein */
+    display: flex;
+    justify-content: center;  /* Zentriert das Bild in seiner Box */
+}
+
+.hero-image img {
+    width: 100%;              /* Das Bild passt sich der Box an */
+    max-width: 500px;         /* Verhindert, dass das Bild riesengroß wird */
+    height: auto;             /* Behält das richtige Seitenverhältnis */
+    border-radius: 8px;       /* Leicht abgerundete Ecken für einen modernen Look */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ein feiner, edler Schattenwurf */
+    object-fit: cover;        /* Schneidet das Bild sauber zu, falls nötig */
+}

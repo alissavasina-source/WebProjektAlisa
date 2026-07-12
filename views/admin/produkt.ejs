@@ -10,7 +10,7 @@
   <% products.forEach(function(p) { %>
     <div class="product-edit-box" style="background: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #ddd;">
       
-      <form action="/admin/produkt/<%= p.id %>/bearbeiten" method="post" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+      <form action="/admin/produkt/<%= p.id %>/bearbeiten" method="post" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;"enctype="multipart/form-data">
         
         <div style="flex: 1; min-width: 150px;">
           <label style="display: block; font-size: 0.8rem; color: #666;">Produktname</label>
@@ -31,6 +31,18 @@
           <label style="display: block; font-size: 0.8rem; color: #666;">Bestand</label>
           <input type="number" name="stock" value="<%= p.stock %>" min="0" style="width: 100%; padding: 5px;" required>
         </div>
+        <div style="flex: 1; min-width: 120px;">
+        <label style="display: block; font-size: 0.8rem; color: #666;">Kategorie</label>
+        <input type="text" name="category" value="<%= p.category || 'Allgemein' %>" style="width: 100%; padding: 5px;" required>
+      </div>
+        
+        <div style="flex: 1; min-width: 150px;">
+        <label style="display: block; font-size: 0.8rem; color: #666;">Produktbild ändern</label>
+        <input type="file" name="image" accept="image/*" style="font-size: 0.8rem;">
+        <% if (p.imagePath) { %>
+          <span style="font-size: 0.7rem; color: #28a745;">Bild vorhanden</span>
+        <% } %>
+      </div>
 
         <div style="padding-top: 15px;">
           <button type="submit" class="btn btn-small">Speichern</button>
@@ -50,11 +62,13 @@
   <br>
 
       <h3>Neues Produkt</h3>
-      <form action="/admin/produkt" method="post" class="form-grid">
+      <form action="/admin/produkt/neu" method="post" class="form-grid" enctype="multipart/form-data">
         <label>Name<input type="text" name="name" required></label>
         <label>Beschreibung<input type="text" name="description" required></label>
         <label>Preis<input type="number" name="price" step="0.01" min="0" required></label>
         <label>Lagerbestand<input type="number" name="stock" min="0" required></label>
+        <label>Kategorie<input type="text" name="category" required> </label>
+        <label>Produktbild<input type="file" name="image" accept="image/*"></label>
         <button type="submit" class="btn btn-primary">Hinzufügen</button>
       </form>
     </section>

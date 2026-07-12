@@ -6,33 +6,34 @@
       <article class="product-card">
          <!-- Produktbild -->
       <a href="/produkte/<%= p.id %>">
-        <img src="<%= p.image %>" alt="<%= p.name %>" class="product-image">
+        <img src="<%= p.imagePath || '/uploadsProduct/produktPlaceholder.png' %>" alt="<%= p.name %>" class="product-image">
       </a>
         <h3><%= p.name %></h3>
         <p class="price"><%= p.price.toFixed(2) %> €</p>
       </article>
     <% }) %>
-
+  </div>
   <h2>Frauen Produkte</h2>
-<div class="product-buy-box">
+  <div class="product-grid">
   <% products.filter(p => p.category === "women").forEach(function(p) { %>
     <article class="product-card">
       <a href="/produkte/<%= p.id %>">
-        <img src="<%= p.image %>" alt="<%= p.name %>" class="product-image">
+        <img src="<%= p.imagePath || '/uploadsProduct/produktPlaceholder.png' %>" alt="<%= p.name %>" class="product-image">
       </a>
       <h3><%= p.name %></h3>
       <p class="price"><%= p.price.toFixed(2) %> €</p>
     </article>
   <% }) %>
 </div>
-</div>
+
+
 
 <h2>Männer Produkte</h2>
 <div class="product-grid">
   <% products.filter(p => p.category === "men").forEach(function(p) { %>
     <article class="product-card">
       <a href="/produkte/<%= p.id %>">
-        <img src="<%= p.image %>" alt="<%= p.name %>" class="product-image">
+        <img src="<%= p.imagePath || '/uploadsProduct/produktPlaceholder.png' %>" alt="<%= p.name %>" class="product-image">
       </a>
       <h3><%= p.name %></h3>
       <p class="price"><%= p.price.toFixed(2) %> €</p>

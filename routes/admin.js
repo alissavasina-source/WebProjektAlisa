@@ -26,9 +26,16 @@ router.post('/termin/stornieren/:id', requireLogin, requireTeam, controller.dele
 
 
 // 4. Produkte
+const produktStorage = multer.diskStorage({
+  destination: (_req, _file, cb) => { cb(null, './public/uploadsProduct'); },
+  filename: (_req, file, cb) => {
+    cb(null, `produkt-${Date.now()}-${file.originalname.replace(/\s+/g, '-')}`);
+  }
+});
+const uploadProdukt = multer({ storage: produktStorage });
 router.get('/produkt', requireLogin, requireTeam, controller.showProducts);
-router.post('/produkt/neu', requireLogin, requireTeam, controller.createProduct);
-router.post('/produkt/:id/bearbeiten', requireLogin, requireTeam, controller.updateProduct);
+router.post('/produkt/neu', requireLogin, requireTeam, uploadProdukt.single('image'), controller.createProduct);
+router.post('/produkt/:id/bearbeiten', requireLogin, requireTeam, uploadProdukt.single('image'), controller.updateProduct);
 router.post('/produkt/:id/loeschen', requireLogin, requireTeam, controller.removeProduct);
 
 // 5. Services
@@ -36,5 +43,9 @@ router.get('/services', requireLogin, requireTeam, controller.listServices);
 router.post('/services/neu', requireLogin, requireTeam, controller.createService);
 router.post('/services/:id/bearbeiten', requireLogin, requireTeam, controller.updateService);
 router.post('/services/:id/loeschen', requireLogin, requireTeam, controller.removeService);
+
+//home
+router.get('/home', requireLogin, requireTeam, controller.showAdminHome);
+router.post('/home/bearbeiten', requireLogin, requireTeam, uploadProdukt.single('heroImage'), controller.updateHome);
 
 module.exports = router;
