@@ -47,5 +47,12 @@
     "name": "Laulau",
     "password": "$2a$10$R.VAaJF/R5yxbM/rWaTVVuhuE3mSY9O/tOo2G.p656C60QoN8GyPO",
     "role": "customer"
+  },
+  {
+    "id": "990a8090-5041-4561-bb39-0c52b5713a20",
+    "email": "2@111",
+    "name": "111111",
+    "password": "$2a$10$JKRbZT6YHxyB34xDM4hgjOhoqlRO.LkV3gOxF970LMdJRlHuKK39.",
+    "role": "team"
   }
 ]

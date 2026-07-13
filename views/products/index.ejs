@@ -1,6 +1,10 @@
 <%- include('../partials/head') %>
 <main class="container">
   <h1>Produktenes</h1>
+  <div class="product nab buttons">
+    <a href="#frauen" class="btn btn-primary">Frauen Produkte</a>
+    <a href="#manner" class="btn btn-primary">Manner Produkte</a>
+  </div>
   <div class="product-grid">
     <% products.forEach(function(p) { %>
       <article class="product-card">
@@ -13,7 +17,7 @@
       </article>
     <% }) %>
   </div>
-  <h2>Frauen Produkte</h2>
+  <h2 id ="frauen">Frauen Produkte</h2>
   <div class="product-grid">
   <% products.filter(p => p.category === "women").forEach(function(p) { %>
     <article class="product-card">
@@ -28,7 +32,7 @@
 
 
 
-<h2>Männer Produkte</h2>
+<h2 id="manner">Männer Produkte</h2>
 <div class="product-grid">
   <% products.filter(p => p.category === "men").forEach(function(p) { %>
     <article class="product-card">

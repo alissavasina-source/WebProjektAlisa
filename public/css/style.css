@@ -17,13 +17,19 @@
 
 
 body {
-  margin: 0;
+
   font-family: 'Segoe UI', system-ui, sans-serif;
   color: #2c2c2c;
   min-height: 100vh; /* Mindestens 100% der Bildschirmhöhe nutzen */
   margin: 0;
   background:#F7F0EB;
   line-height: 1.5;
+  /*display: grid;
+  grid-template-rows: auto 1fr auto;*/
+ min-height: 100vh;      /* Zwingt die Seite auf mindestens 100% Bildschirmhöhe */
+  position: relative;     /* Erlaubt es dem Footer, sich unten anzudocken */
+  padding-bottom: 80px;   /* WICHTIG: Genau so viel Platz, wie dein Footer hoch ist! */
+  box-sizing: border-box;
 }
 
 a {
@@ -236,7 +242,7 @@ a:hover {
 
 /*was die + und - Buttons betrifft*/
 .qty-btn {
-  background: #8b5a3c;
+  background: #9A7E72;
   color: #F7F0E8;
   border: none;
   padding: 0.4rem 0.8rem;
@@ -471,7 +477,12 @@ fieldset {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 0;
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px
 }
 
 .footer-left,
@@ -493,7 +504,9 @@ main.container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  min-height: 100wh;
+ /* min-height: 100vh;
+  flex-grow: 1; */
+  width: 100%;
 }
 
 
@@ -504,11 +517,13 @@ main.container.admin-page {
   max-width: 100%; /* Nutzt den ganzen Bildschirm aus */
   padding: 0;
   margin: 0;
+  /*flex-grow: 1;*/
+  width: 100%;
 }
 /* 2. Styling für dein ausgelagertes Menü-Partial */
 /* (Hinweis: Falls dein Partial mit <nav class="admin-sidebar"> anfängt, nutze das hier) */
 .admin-sidebar {
-  background-color: #2c3e50; /* Professionelles, dunkles Admin-Blau */
+  background-color: #2c2d50; /* Professionelles, dunkles Admin-Blau */
   color: #ffffff;
   padding: 20px 0;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
@@ -641,7 +656,7 @@ main.container.admin-page {
 .hero-buttons .button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #333;   /* Hintergrundfarbe deiner Buttons */
+    background-color: #9A7E72;   /* Hintergrundfarbe deiner Buttons */
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
@@ -667,4 +682,15 @@ main.container.admin-page {
     border-radius: 8px;       /* Leicht abgerundete Ecken für einen modernen Look */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ein feiner, edler Schattenwurf */
     object-fit: cover;        /* Schneidet das Bild sauber zu, falls nötig */
+}
+/*Männer und Frauen Produkte*/
+.product-nav-buttons {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+#frauen,
+#manner {
+  scroll-margin-top: 80px;
 }

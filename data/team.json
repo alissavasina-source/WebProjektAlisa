@@ -36,5 +36,14 @@
     ],
     "tasks": [],
     "imagePath": "/uploadsTeam/profile-1782999327168-brenda.jpeg"
+  },
+  {
+    "id": "0f0a2ce7-3c59-42cd-be69-84652e6ab3f6",
+    "userId": "990a8090-5041-4561-bb39-0c52b5713a20",
+    "name": "111111",
+    "role": "Neues Teammitglied",
+    "bio": "",
+    "services": [],
+    "tasks": []
   }
 ]

@@ -6,7 +6,7 @@
    <div class="product-detail-wrapper">
    <!-- Linke Seite: Bild, new-->
     <div class="product-detail-image-box">
-      <img src="<%= product.image %>" alt="<%= product.name %>" class="product-detail-image">
+      <img src="<%= product.imagePath || '/uploadsProduct/produktPlaceholder.png' %>" alt="<%= product.name %>" class="product-detail-image">
       
       <div class="product-buy-box">
         <p class="price">Preis: <%= product.price.toFixed(2) %> €</p>
