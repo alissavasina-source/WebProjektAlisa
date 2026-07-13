@@ -7,21 +7,39 @@ function getMemberForUser(userId) {
 
 exports.list = (req, res) => {
   const members = store.read('team');
-  res.render('team/index', { title: 'Team', members });
+  res.render('team/index', {
+    title: 'Team',
+    members
+  });
 };
 
 exports.showRegister = (req, res) => {
   const existing = getMemberForUser(req.session.user.id);
- if (existing) return res.redirect('/team/profil/me');
+
+  if (existing) {
+    return res.redirect('/team/profil/me');
+  }
 
   const services = store.read('services');
-  res.render('team/register', { title: 'Team-Registrierung', services, error: null });
+
+  res.render('team/register', {
+    title: 'Team-Registrierung',
+    services,
+    error: null
+  });
 };
 
 exports.register = (req, res) => {
   const { role, bio, services: serviceIds } = req.body;
-  const selectedServices = Array.isArray(serviceIds) ? serviceIds : serviceIds ? [serviceIds] : [];
+
+  const selectedServices = Array.isArray(serviceIds)
+    ? serviceIds
+    : serviceIds
+      ? [serviceIds]
+      : [];
+
   let imagePath = '/uploadsTeam/default-avatar.png';
+
   if (req.file) {
     imagePath = `/uploadsTeam/${req.file.filename}`;
   }
@@ -34,58 +52,83 @@ exports.register = (req, res) => {
     bio: bio || '',
     services: selectedServices,
     tasks: [],
-    imagePath: imagePath
+    imagePath
   });
 
-
-  //res.redirect('/admin/profile');
-  res.redirect('/');
+  res.redirect('/team/profil/me');
 };
-
-
-
- res.redirect('/team/profil/me');{
-};
-
 
 exports.addTask = (req, res) => {
   const member = getMemberForUser(req.session.user.id);
-  if (!member) return res.redirect('/team/registrieren/me');
+
+  if (!member) {
+    return res.redirect('/team/registrieren/me');
+  }
 
   member.tasks = member.tasks || [];
-  member.tasks.push({ id: uuidv4(), title: req.body.title, done: false });
+
+  member.tasks.push({
+    id: randomUUID(),
+    title: req.body.title,
+    done: false
+  });
+
   store.upsert('team', member);
- res.redirect('/team/profil/me');
+
+  res.redirect('/team/profil/me');
 };
 
 exports.toggleTask = (req, res) => {
   const member = getMemberForUser(req.session.user.id);
-if (!member) return res.redirect('/team/registrieren/me');
+
+  if (!member) {
+    return res.redirect('/team/registrieren/me');
+  }
 
   const task = member.tasks.find((t) => t.id === req.params.taskId);
-  if (task) task.done = !task.done;
+
+  if (task) {
+    task.done = !task.done;
+  }
+
   store.upsert('team', member);
- res.redirect('/team/profil/me');
+
+  res.redirect('/team/profil/me');
 };
 
 exports.removeTask = (req, res) => {
   const member = getMemberForUser(req.session.user.id);
-if (!member) return res.redirect('/team/registrieren/me');
 
-  member.tasks = member.tasks.filter((t) => t.id !== req.params.taskId);
+  if (!member) {
+    return res.redirect('/team/registrieren/me');
+  }
+
+  member.tasks = (member.tasks || []).filter(
+    (t) => t.id !== req.params.taskId
+  );
+
   store.upsert('team', member);
- res.redirect('/team/profil/me');
+
+  res.redirect('/team/profil/me');
 };
 
-736145b (css)
 exports.showMember = (req, res) => {
   const member = store.findById('team', req.params.id);
-  if (!member) return res.redirect('/team');
-  const services = store.read('services').filter((s) => member.services.includes(s.id));
-  res.render('team/member', { title: member.name, member, services });
+
+  if (!member) {
+    return res.redirect('/team');
+  }
+
+  const services = store
+    .read('services')
+    .filter((s) => member.services.includes(s.id));
+
+  res.render('team/member', {
+    title: member.name,
+    member,
+    services
+  });
 };
-
-
 
 exports.showProfile = (req, res) => {
   const member = getMemberForUser(req.session.user.id);
@@ -119,4 +162,3 @@ exports.updateProfile = (req, res) => {
 
   res.redirect('/team/profil/me');
 };
-
