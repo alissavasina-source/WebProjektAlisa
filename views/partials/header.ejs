@@ -5,8 +5,8 @@
     </div>
 
     <nav class="header-nav">
-      <a href="/">Start</a>
-      <a href="/services">Services</a>
+      <a href="/">Startseite</a>
+      <a href="/services">Dienstleistungen</a>
       <a href="/portfolio">Portfolio</a>
       <a href="/termin">Termin</a>
       <a href="/produkte">Produkte</a>
@@ -17,9 +17,9 @@
       <div class="auth-links">
         <% if (user) { %>
           <% if (user.role === 'team') { %>
-            <a href="/admin/profile" class="user-greeting text-link">💼 Hallo, <%= user.name %> (Team)</a>
+            <a href="/admin/profile" class="user-greeting text-link">💼 Hallo, <%= user.name %> (Team),</a>
           <% } else { %>
-           <span class="user-greeting">Hallo, <%= user.name %></span>
+           <span class="user-greeting">Hallo, <%= user.name %>,</span>
           <% } %>
           <form action="/abmelden" method="post" class="inline-form">
             <button type="submit" class="link-btn">Abmelden</button>

@@ -54,5 +54,19 @@
     "name": "111111",
     "password": "$2a$10$JKRbZT6YHxyB34xDM4hgjOhoqlRO.LkV3gOxF970LMdJRlHuKK39.",
     "role": "team"
+  },
+  {
+    "id": "bcfb3b75-e045-43d7-b6bd-a0e80c6bba4a",
+    "email": "1@2332",
+    "name": "dfdfd",
+    "password": "$2a$10$mlrE1MzSoyPOLoPpYJw4TeZKSRxSA.v4ArvMwMFwUKBC6n60B.OhW",
+    "role": "customer"
+  },
+  {
+    "id": "ab17776e-5d19-4c8f-b180-5aff75c19816",
+    "email": "2@23111",
+    "name": "111",
+    "password": "$2a$10$M8glDHCz5mq8AEJ0CwPwz.yyjDj/9FRzKlt2qUAF5Z0zRsbI3oRYS",
+    "role": "team"
   }
 ]
